@@ -1,0 +1,54 @@
+Base de datos
+
+Tablas:
+-Usuario:
+	-usu_id
+	-usu_udid
+	-usu_countrie_nom
+	-usu_coun_id
+	-usu_nombre
+	-usu_estado (Esperando Confirmacion/Confirmado/Suspendido/Cancelado)
+-Pass: 
+	pass_id
+	pass_true
+	pass_false
+
+-Contacto:
+	con_id
+	con_nombre
+
+-Pase:
+	pa_id
+	pa_nombre
+	pa_con_id (a quien dejo pasar)
+	pa_validez (2hs,6hs,12hs)
+	pa_estado (Enviado/Recibido/Entro/Vencido/Cancelando/Cancelado/Editado)
+	pa_codigo_validacion
+	
+	
+-Noticias:
+	no_id
+	no_fecha
+	no_titulo
+	no_foto (tener/no tener)
+	no_resumen
+	no_nota
+	no_vencimiento
+	no_marcar (ocultar/favoritas/)
+	no_country_id
+
+-Inoformes:
+	in_id
+	in_fecha
+	in_titulo
+	in_foto (tener/no tener)
+	in_resumen
+	in_nota
+	in_vencimiento
+	in_leido
+	in_opciones (opciones de respuesta)
+	in_respuesta
+	in_marcar (ocultar/favoritos)
+	in_country_id
+	
+	
