@@ -64,7 +64,7 @@ function querySuccess(tx, rs) {
 		//alert("sin usuario");
 		db=window.db;
 		 db.transaction(insertUsu, errorCB);// Remplaza el sincronizar
-		 setTimeout(function(){window.location = "sincronizar.html";},3000)
+		 setTimeout(function(){window.location = "noticias.html";},3000)
 		// -- cuando tenga q sincronizar
 		//window.location = "noticias.html";
 	}
