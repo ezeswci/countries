@@ -457,7 +457,6 @@ a {
 	margin-left:auto;
 	margin-right:auto;
 }
-
 #cartel {
 	width:90%;
 	max-height: 90vh;
@@ -516,49 +515,6 @@ a {
 	margin-top:20px;
 	margin-bottom:20px;
 	color: black;
-}
-#cartel .content .rojo{
-	width: 48%;
-	height:100px;
-	font-weight: lighter;
-	text-align: center;
-	background-color:#F00;
-	font-size:12px;
-	padding-top:40px;
-	display:inline-block;
-	color: black;
-}
-#cartel .content .amarillo{
-	width: 48%;
-	height:100px;
-	font-weight: lighter;
-	text-align: center;
-	background-color:#FF0;
-	font-size:12px;
-	padding-top:40px;
-	display:inline-block;
-	color: black;
-}
-#cartel .content .verde{
-	width: 48%;
-	height:100px;
-	font-weight: lighter;
-	text-align: center;
-	background-color: #0C0;
-	font-size:12px;
-	padding-top:40px;
-	display:inline-block;
-	color: black;
-}
-#cartel .content .azul{
-	width: 48%;
-	height:100px;
-	font-weight: lighter;
-	text-align: center;
-	background-color: #06F;
-	font-size:12px;
-	padding-top:40px;
-	display:inline-block;
 }
 /* sensible al tamaño del cel a tener en cuenta */
 #cartel .content_export, #cartel2 .content_export, #cartel3 .content_export, #cartel4 .content_export{
