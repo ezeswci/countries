@@ -91,7 +91,7 @@ function actualizarContactoId(rowid,value){
 	);
 }
 function successupd(){
-	 alert('acualizo bien');
+	 //alert('acualizo bien');
 	 
 }
 function errorupd(){
