@@ -20,7 +20,7 @@ function apretoPanico(elemento){
 		elemento.src="img/boton_parar.jpg";
 		posiblidadCancelarPanico();
 		activarPanico();
-		//setTimeout(function(){navigator.app.exitApp();},3000)
+		setTimeout(function(){elemento.src="img/boton_empezar.jpg";},3000)
 	}/*else{
 		//desactivarPanico(); - Desactivar por sistema?
 	}*/
@@ -44,7 +44,7 @@ function detenerPanico(){
 }
 function activarPanico(){
 	empezarATrasmitirGps();
-	estadoDePanico(1);
+	//estadoDePanico(1);
 	//enviarMensajes();
 	//if(window.llamadaSecreta==1){startAudioRec();}
 	if(cordova.plugins.backgroundMode.isEnabled()!=true){cordova.plugins.backgroundMode.enable();}
@@ -89,9 +89,6 @@ function enviarMensajeServidor(){
 	    {
 			value=parseInt(xmlhttp.responseText);
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
-			if(inv_estado!=value){
-			//alert("Actualizo:"+value);			
-			}
 	    }
 	 	 }
 		xmlhttp.open("POST","http://swci.com.ar/cc/api/activar_alerta.php",false);
@@ -124,9 +121,6 @@ function cancelarAlerta(){
 	    {
 			value=parseInt(xmlhttp.responseText);
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
-			if(inv_estado!=value){
-			//alert("Actualizo:"+value);			
-			}
 	    }
 	 	 }
 		xmlhttp.open("POST","http://swci.com.ar/cc/api/cancelar_alerta.php",false);
