@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "MiCountry"
+        id        = "MiClubHouse"
         version   = "1.0.0">
 
-    <name>Mi Country</name>
+    <name>Mi Club House</name>
 
     <description>
-        Mi Alerta App, es una App que sirve como boton de panico para emeregencias
+        Mi Club House App, es una App que sirve como boton de panico para emeregencias
     </description>
 
     <author href="http://www.swci.com.ar" email="info@swci.com.ar">
@@ -66,8 +66,8 @@
 	<gap:plugin name="nl.x-services.plugins.calendar" />
 	<gap:plugin name="de.appplant.cordova.plugin.email-composer" />
 	<gap:plugin name="com.inazar.datepicker" />
-	<gap:plugin name="de.cameonet.cordova.contacts" version="0.2.13" />
-	<gap:plugin name="com.cordova.plugins.sms"/>
+	<!--gap:plugin name="de.cameonet.cordova.contacts" version="0.2.13" /-->
+	<!--gap:plugin name="com.cordova.plugins.sms"/-->
 	<gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" />
     <!--<gap:plugin name="com.plugin.datepicker" version="0.3.2" />
 	 End Third party plugins -->

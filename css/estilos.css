@@ -519,7 +519,7 @@ a {
 /* sensible al tamaño del cel a tener en cuenta */
 #cartel .content_export, #cartel2 .content_export, #cartel3 .content_export, #cartel4 .content_export{
 	width: 80%;
-	max-height:120px;
+	max-height:50vh;
 	margin-left:10%;
 	margin-right:10%;
 	font-weight: lighter;
@@ -758,6 +758,20 @@ a {
 	text-align: right;
 	margin-top:-10px;
 	margin-bottom:-5px;
+}
+.deportes_item {
+	width: 100%;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #D1D2D4;
+	padding-top: 15px;
+	text-align: center;
+	height:40px;
+	border-right: 0px;
+    border-left: 0px;
+	font-size: 16px;
+	margin-bottom:15px;
+	background-color:#98D389;
 }
 /*
 @media only screen and ( max-width: 600px )  {
@@ -1065,4 +1079,18 @@ body {
 }
 .cuerpo_preguntas .completo .contenedor .prize-box .resumen p{
 	margin:0px;
+}
+.hora_reserva{
+	width:70px;
+	height:40px;
+	padding-top:30px;
+	background-color: #CCC;
+	text-align:center;
+}
+.hora_reservada{
+	width:70px;
+	height:40px;
+	padding-top:30px;
+	background-color: #98D389;
+	text-align:center;
 }

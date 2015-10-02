@@ -6,9 +6,9 @@
     <title>Country</title>
      <script src="cordova.js" type="text/javascript"></script>
     <script src="js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="js/invitados.js" type="text/javascript"></script>
-    <script src="js/controlInvitados.js" type="text/javascript"></script>
-    <script src="js/chequeoConexion.js" type="text/javascript"></script>
+	<script src="js/gestorReservas.js" type="text/javascript"></script>
+    <script src="js/gestorReservasEspecifico.js" type="text/javascript"></script>
+    <script src="js/objetosDeportes.js" type="text/javascript"></script>
     <link href="css/estilos.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
@@ -17,7 +17,7 @@
    <div id="resumen_oculto"></div>
     <div class="header">
         <div class="titulo">
-            <img class="historial_logo" onclick="agregarSMSManual();" src="img/historial_logo.jpg" width="30" height="30"-->MIS CONTACTOS
+            <img class="historial_logo" onclick="abrirReservas();" src="img/reservas_logo.jpg" width="30" height="30"-->MIS RESERVAS
             <a href="historial_info2.html">
                 <img class="i" src="img/I.jpg" width="25" height="25" />
             </a>
@@ -40,13 +40,13 @@
             <img src="img/noticias.png" width="135" height="135" />
         </a>
         <a href="invitados.html">
-            <img src="img/perfil_hover.png" width="135" height="135" />
+            <img src="img/perfil.png" width="135" height="135" />
         </a>
         <a href="emergencia.html">
             <img src="img/seguridad.png" width="135" height="135" />
         </a>
         <a href="reservas.html">
-            <img src="img/reservas.png" width="135" height="135" />
+            <img src="img/reservas_hover.png" width="135" height="135" />
         </a>
         <a href="mas.html">
             <img src="img/mas.png" width="135" height="135" />
@@ -54,18 +54,7 @@
     </div>
      <!-- Los mensajes -->
  <div id="cartel" class="cartel">
-        <div onclick="cerrarTodo();" id="x">
-            <img src="img/x.jpg" width="35" height="35" />
-        </div>
-        <div class="titulo">INGRESO DE CONTACTOS</div>
-        <div class="content">
-        <p>Eliga si desea cargar los contactaos de manera manual o si desea importarlos desde su agenda. Estos contactos son quienes van a recibir el mensaje de alerta. El mensaje lo pueden recibir mediante SMS o Mediante un mail.</p>
-        <p>Elija el tipo de carga: </p>
-        </div>
-        <div class="botones">
-         	<div onclick="agregarManual();" class="boton">MANUAL</div>
-            <div onclick="agregarDesdeLaAgenda();" class="boton der">AGENDA</div>
-        </div>
+        
  </div>
  <div id="cartel2" class="cartel">
         
