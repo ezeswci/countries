@@ -2,6 +2,7 @@
 function registrarClubHouse(){
 	var codigo=document.getElementById("codigo").value;
 	var udid=device.uuid;
+	var regId=window.regId;
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -31,7 +32,7 @@ function registrarClubHouse(){
 	 	 }
 		xmlhttp.open("POST","http://swci.com.ar/cc/api/sincronizar_usuario.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send("codigo="+codigo+"&udid="+udid);
+		xmlhttp.send("codigo="+codigo+"&udid="+udid+"&regId="+regId);
 }
 function cerrarTodo(){
 	document.getElementById("cartel").style.visibility="hidden";
