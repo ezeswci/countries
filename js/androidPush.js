@@ -1,4 +1,7 @@
 // JavaScript Document
+ var pushNotification;
+            
+function onDeviceReady() {
 $("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
     pushNotification.register(
@@ -9,7 +12,7 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
         "ecb":"onNotification"
     });
 }
-
+}
 // Android and Amazon Fire OS
 function onNotification(e) {
     $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
