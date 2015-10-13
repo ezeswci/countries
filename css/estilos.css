@@ -24,8 +24,8 @@ body {
 	color: #717174;
 	padding-right: 0px;
 	padding-left: 0px;
-	padding-top: 16px;
-	padding-bottom: 16px;
+	/*padding-top: 16px;
+	padding-bottom: 16px;*/
 	overflow-x:hidden;
 	/* No background, just iOS:*/
 }
@@ -163,9 +163,66 @@ a {
 	top: 70px;
 }
 }*/
-
-
-
+.main_login{
+	width:100%;
+	height:100%;
+	min-height:100vh;
+	background-color:#A5CE44;
+	display:table;
+	color:#FFF;
+	font-size:16px;
+}
+.main_login .login{
+	display:table-cell;
+	text-align: center;
+ 	vertical-align: middle;
+	width:300px;
+}
+.main_login .login H1{
+	text-align: center;
+	font-size:24px;
+	border: solid #FFF 2px;
+	width:100px;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	margin-bottom:40px;
+	padding: 10px;
+}
+.main_login .login .texto{
+	width:170px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+	margin-bottom:40px;
+}
+.main_login .login .texto p{
+	margin:3px;
+}
+.main_login .login .texto input{
+	margin-top:0px;
+	width:160px;
+	-webkit-box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+-moz-box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+}
+.main_login .login .boton{
+	width:50px;
+	height:50px;
+	text-align:center;
+	background-color:#8BC63E;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:12px;
+}
+.main_login .login .boton p{
+	padding-top: 18px;
+}
 
 .header #logo {
 	width: 150px;
@@ -834,9 +891,9 @@ a {
 #resumen_oculto {
 	display:none;
 }
-@media screen and (min-height: 570px) {
+/*@media screen and (min-height: 570px) {
 	/* Si es mas grande que los regulares */
-	.cuerpo2 .fecha {
+	/*.cuerpo2 .fecha {
 		margin-top:90px;
 	}
 	.cuerpo .item {
@@ -876,8 +933,8 @@ a {
 }
 @media screen and (min-height: 800px) {
 	/* Si es mas grande que los regulares */
-body {
-  zoom: 135%;
+/*body {
+/*  zoom: 135%;
 }
 .cuerpo .boton.inicio {
 	margin-top:0px;
@@ -886,7 +943,7 @@ body {
 }
 @media screen and (min-height: 1200px) {
 	/* Si es mas grande que los regulares */
-body {
+/*body {
   zoom: 150%;
 }
 .cuerpo .boton.inicio {
@@ -941,7 +998,7 @@ body {
 	.cuerpo_mas .item {
 	font-size: 13px;
 }
-}
+}*/
 .terminos{
 	width:100%;
 	height:auto;

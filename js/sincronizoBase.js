@@ -6,7 +6,7 @@ var db;
 
 // PhoneGap is ready
 //
-function onDeviceReady() {
+function registrarEnBase() {
     var dbSize = 200000;
     var dbName = "CCA";
     var dbVersion = "1.0";
@@ -15,8 +15,8 @@ function onDeviceReady() {
 
     //Init DB
     //
-    window.db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
-    db.transaction(initDB, errorCB, successCB);
+   window.db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
+   db.transaction(initDB, errorCB, successCB);
 	
 
 }
@@ -43,9 +43,9 @@ function successCB() {
     //alert("Success!");
     //Select query
     //
-	db.transaction(initDB, errorCB);
+	db.transaction(insertUsu, errorCB);
 	// Para la demo
-	db.transaction(selectHist, errorCB);
+	//db.transaction(selectHist, errorCB);
 }
 
 function selectHist(tx) {
@@ -59,9 +59,11 @@ function insertUsu(tx){
      //tx.executeSql(query, [1, id, "Ezequiel", "Wernicke", "1161749820", "A"]);
 	 //var query1 = 'INSERT INTO LOTES (lot_id, lot_nombre , lot_coun_id , lot_flia) VALUES (?,?,?,?)';
      //tx.executeSql(query1, [1, "T-63", 1, "Wernicke"]);
-	 /* Lo unico que va
+	  /*Lo unico que va*/
 	 var query2 = 'INSERT INTO LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo) VALUES (?,?,?,?)';
-     tx.executeSql(query2, [1, 1, 1, 1]); */
+     tx.executeSql(query2, [window.lu_id, window.lu_lo_id, window.lu_usu_id, window.lu_tipo]); 
+	 
+	 tx.executeSql('SELECT * FROM LOT_USU', [], querySuccess, errorCB);
 	 //var query3 = 'INSERT INTO COUNTRY (co_id, co_nombre) VALUES (?,?)';
      //tx.executeSql(query3, [1, "Ayres de Pilar"]);/**/
 	 
@@ -72,13 +74,7 @@ function querySuccess(tx, rs) {
 	if(rs.rows.length>0){
 		window.location = "noticias.html";
 	}else{
-		//alert("sin usuario"); */
-		/*
-		db=window.db;
-		 db.transaction(insertUsu, errorCB);// Remplaza el sincronizar
-		 setTimeout(function(){window.location = "noticias.html";},3000)*/
-		 window.location = "sincronizar.html";
-		// -- cuando tenga q sincronizar
-		//window.location = "noticias.html";
+		 //window.location = "sincronizar.html";
+		 alert("error");
 	}
 }
