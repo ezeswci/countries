@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Countries</title>
     <script src="cordova.js" type="text/javascript"></script>
-    <script src="js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery_1.5.2.min.js" type="text/javascript"></script>
     <script src="js/sincronizoBase.js" type="text/javascript"></script>
     <script src="js/registrarClubHouse.js" type="text/javascript"></script>
     <script src="js/pushNotifications.js" type="text/javascript"></script>
@@ -88,7 +88,7 @@
 						$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
 						// Your GCM push server needs to know the regID before it can push to this device
 						// here is where you might want to send it the regID for later use.
-						console.log("regID = " + e.regid);
+						alert("regID = " + e.regid);
 					}
                     break;
                     
