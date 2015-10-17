@@ -1067,12 +1067,78 @@ box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
 	min-height:100vh;
 }
 .cuerpo_preguntas .completo{
+	padding-top: 77px;
 	width:100%;
 	height:100%;
 	text-align:center;
 	  background-color: #F7F4EF;
 	  overflow:hidden;
 }
+.cuerpo_preguntas .separador{
+	width:95%;
+	margin-left:2.5%;
+	height:1px;
+	background-color:#DADBDD;
+}
+.cuerpo_preguntas .completo .noticias{
+	margin-top:5px;
+	margin-bottom:5px;
+	width:100%;
+	height:100%;
+	text-align:center;
+	background-color: #F7F4EF;
+	overflow:hidden;
+}
+.cuerpo_preguntas .completo .noticias .primera_titulo{
+	font-family: 'DINNextRoundedLTPro-Regular';
+	font-size:15px;
+ 	padding-top:15px;
+	padding-bottom:15px;
+	width:95%;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	color:#FFF;
+	text-align: left;
+	background-color: #8FC749;
+	text-transform: uppercase;
+}
+.cuerpo_preguntas .completo .noticias .primera_img{
+	width:100%;
+	height:125px;
+	background-size:cover;
+	background-color: #EBEBEB;
+}
+.cuerpo_preguntas .completo .noticias .not_img{
+	width:35%;
+	margin-right:4%;
+	height:82px;
+	background-size:cover;
+	background-color: #EBEBEB;
+	display:block;
+	float:left;
+}
+.cuerpo_preguntas .completo .noticias .titulo{
+	font-family: 'DINNextRoundedLTPro-Regular';
+	font-size:16px;
+	width:60%;
+	display:block;
+	float:left;
+	color:#FFF;
+	text-align: left;
+	color:#636466;
+	text-transform: uppercase;
+}
+.cuerpo_preguntas .completo .noticias .copete{
+	font-family: 'DINNextLTPro-Regular';
+	font-size:9px;
+	width:60%;
+	display:block;
+	float:left;
+	color:#FFF;
+	text-align: left;
+	color:#000;
+}
+/*
 .cuerpo_preguntas .completo .puntos{
 	width:100%;
 	margin-top:20px;
@@ -1181,7 +1247,7 @@ box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
 }
 .cuerpo_preguntas .completo .contenedor .prize-box .resumen p{
 	margin:0px;
-}
+}*/
 .hora_reserva{
 	width:70px;
 	height:40px;
