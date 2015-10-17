@@ -15,12 +15,16 @@
 
 </head>
 
-<body>
- <div class="header_publi"><div class="wrapper"><img src="img/banner2.jpg" width="100%" height="70px;" id="img_ppal" /></div></div>
-    <div class="header_carga">
-        <div class="titulo">SEGURIDAD</div>
+<body style="overflow: hidden;">
+ <div class="header">
+        <div class="titulo">
+            SEGURIDAD
+            <a href="#">
+                <img class="i" src="img/I.jpg" width="25" height="25" />
+            </a>
+        </div>
     </div>
-    <div class="cuerpo2">
+    <div class="cuerpo">
         <!--        CALENDARIO / RELOJ      -->
  	<div class="main">
     <div class="boton_panico"><img id="img_panic" onclick="apretoPanico(this);" src="img/boton_empezar.jpg" width="100%" /> </div>
@@ -28,17 +32,14 @@
     </div>
     
     <div id="cartel" class="cartel">
-        <div onclick="cerrarTodo();" id="x">
-            <img src="img/x.jpg" width="35" height="35" />
-        </div>
-        <div class="titulo">ALERTA ENVIADA</div>
+        <div class="titulo"><p>ALERTA ENVIADA</p></div>
         <div class="content">
         <p>Su alerta fue enviada.</p>
         <p>En caso de error aprete el boton Error.</p>
         <p>El mensaje se cerrara en <span id="tiemp_cerrar">5</span> segundos</p>
         </div>
         <div class="botones">
-         	<div onclick="avisarError();" class="boton_unico">ERROR</div>
+         	<div onclick="avisarError();" class="boton_unico"><p>ERROR</p></div>
         </div>
      </div>
 

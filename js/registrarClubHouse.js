@@ -1,7 +1,7 @@
 // JavaScript Document
 function registrarClubHouse(){
 	var codigo=document.getElementById("codigo").value;
-	var udid=device.uuid;
+	var udid=device.uuid;//"123456";
 	var regId=window.regId;
 	var xmlhttp;
 		if (window.XMLHttpRequest)

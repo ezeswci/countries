@@ -2,23 +2,23 @@
 window.TengoQueActualizar=0;
 function actualizar(){
 if(window.TengoQueActualizar==1){
-		setTimeout(function(){window.location="invitados.html";},5000);}else
+		setTimeout(function(){window.location="invitados.html";},1000);}else
 		{
 //alert("Va pregunta para actualizar:");
 if(window.db!=null) { 
 window.db.transaction(actualizarInvitados, errorCB);
 }else{ 
-setTimeout(function(){esperarActualizar();},9000); 
+setTimeout(function(){esperarActualizar();},2000); 
 }}
 //setTimeout(function(){actualizar();},9000);
 }
-setTimeout(function(){actualizar();},9000);
+setTimeout(function(){actualizar();},2000);
 function esperarActualizar(){
 	//alert("Espero a actualizar");
 	if (typeof actualizar == 'function') { 
-  		setTimeout(function(){actualizar();},9000); 
+  		setTimeout(function(){actualizar();},2000); 
 		}else{ 
-  		setTimeout(function(){esperarActualizar();},9000); 
+  		setTimeout(function(){esperarActualizar();},2000); 
 		}
 }
 function actualizarInvitados(tx) {
@@ -34,7 +34,7 @@ function querySuccessActualizar(tx, rs) {
 		// No es sincronizable, no conviene varia simplemente el tengo que actualizar
 		verificarEstadoInvitado(i+1,p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod);
     }
-		setTimeout(function(){esperarActualizar();},5000);
+		setTimeout(function(){esperarActualizar();},1000);
 }
 function errorCBAA() {
     alert("error CBAA");

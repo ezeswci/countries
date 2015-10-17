@@ -115,7 +115,7 @@ function agregarManual(){
 
 function agregarSMSManual(){
 	document.getElementById("cartel2").style.visibility="hidden";
-	document.getElementById("cartel3").innerHTML='<div class="titulo">INGRESE LOS DATOS</div><div class="content"><p>Ingrese el nombre del Invitado.</p><table width="100%"><tr><td width="20%">Nombre:</td><td><input type="text" id="con_nombre" autocomplete="off" ></td></tr></table></div><div class="botones"><div onclick="cerrarTodo();" class="boton">CANCELAR</div><div onclick="agregarAgenda();" class="boton der">AGREGAR</div></div>';
+	document.getElementById("cartel3").innerHTML='<div class="titulo"><p>INGRESE LOS DATOS</p></div><div class="content"><p>Ingrese el nombre del Invitado.</p><table width="100%"><tr><td width="20%">Nombre:</td><td><input type="text" id="con_nombre" autocomplete="off" ></td></tr></table></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="agregarAgenda();" class="boton der"><p>AGREGAR</p></div></div></div>';
 	document.getElementById("cartel3").style.visibility="visible";
 }/*
 function agregarMailManual(){

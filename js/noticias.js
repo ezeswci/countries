@@ -24,7 +24,7 @@ function mostrarPremios(){
    }
 }
 function openProducto(cual){
-	texto='<div onclick="cerrarPopUp();" id="x"><img src="img/x.jpg" width="35" height="35" /></div><div class="scroll"><div class="titulo">'+window.premios[cual].titulo+'</div><img src="'+window.premios[cual].foto+'" class="ppal" /><div class="content"><p>Noticia: <span>'+window.premios[cual].descript+'</span></p></div></div><div class="botones"><div onclick="cerrarPopUp();" class="boton_unico">ACEPTAR</div></div>';
+	texto='<div class="scroll"><div class="titulo"><p>'+window.premios[cual].titulo+'</p></div><img src="'+window.premios[cual].foto+'" class="ppal" /><div class="content"><p>Noticia: <span>'+window.premios[cual].descript+'</span></p></div></div><div class="botones"><div onclick="cerrarPopUp();" class="boton_unico aceptar"><p>ACEPTAR</p></div></div>';
 	document.getElementById("cartel").innerHTML=texto;
 	document.getElementById("cartel").style.visibility="visible";
 	document.getElementById("fondo_negro").style.visibility="visible";

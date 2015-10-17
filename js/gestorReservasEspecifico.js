@@ -27,7 +27,7 @@ function mostrarDeporte(nombreDeporte,deporteId){
         <!-- Repetir Todos Los horarios que sean -->*/
    
 	
-	document.getElementById("cartel").innerHTML='<div onclick="cerrarTodo();" id="x"><img src="img/x.jpg" width="35" height="35" /></div><div class="titulo">'+nombreDeporte+'</div><div class="content"><p>Haga click en los horarios que desea reservar.</p></div><div class="content_export" style="overflow-x: auto;"><table border="0" cellpadding="5px" align="center">'+texto+'</table></div><div class="botones"><div onclick="cerrarTodo();" class="boton">CANCELAR</div><div onclick="gestionarReserva()" class="boton der">RESERVAR</div></div>';	 
+	document.getElementById("cartel").innerHTML='<div class="titulo"><p>'+nombreDeporte+'</p></div><div class="content"><p>Haga click en los horarios que desea reservar.</p></div><div class="content_export" style="overflow-x: auto;"><table border="0" cellpadding="5px" align="center">'+texto+'</table></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="gestionarReserva()" class="boton der"><p>RESERVAR</p></div></div></div>';	 
 document.getElementById("cartel").style.visibility="visible";
 }
 function reservarHorario(elemento, deporte, hora, cancha){

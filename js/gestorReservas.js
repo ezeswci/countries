@@ -25,10 +25,10 @@ function agregarActividadesDisponiblesVentana(depo){
 	//alert("Entre a agregar agenda");
 	var texto=" ";
 	for (var b in depo) {
-	   texto +='<div class="deportes_item" onclick="mostrarDeporte(\'' +depo[b].nombre+ '\',\'' +depo[b].id+ '\')"><strong>'+depo[b].nombre+' </strong></div>';
+	   texto +='<div class="deportes_item" onclick="mostrarDeporte(\'' +depo[b].nombre+ '\',\'' +depo[b].id+ '\')"><p>'+depo[b].nombre+' </p></div>';
    }
    
 	
-	document.getElementById("cartel").innerHTML='<div onclick="cerrarTodo();" id="x"><img src="img/x.jpg" width="35" height="35" /></div><div class="titulo">TIPO DE RESERVA</div><div class="content"><p>Haga click en el tipo de reserva que desea gestionar.</p></div><div class="content_export">'+texto+'</div><div class="botones"><div onclick="cerrarTodo();" class="boton_unico">CANCELAR</div></div>';	 
+	document.getElementById("cartel").innerHTML='<div class="titulo"><p>TIPO DE RESERVA</p></div><div class="content"><p>Haga click en el tipo de reserva que desea gestionar.</p></div><div class="content_export">'+texto+'</div><div class="botones"><div onclick="cerrarTodo();" class="boton_unico"><p>CANCELAR</p></div></div>';	 
 document.getElementById("cartel").style.visibility="visible";
 }

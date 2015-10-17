@@ -99,7 +99,7 @@ function enviarMensajeServidor(){
 			setTimeout(function(){enviarMensajeServidor();},5000); 
 		}
 }
-function cancelarAlerta(){
+function avisarError(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
 	cerrarAviso();
 	var lot_usu=window.lotUsuId;
