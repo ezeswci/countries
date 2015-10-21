@@ -661,6 +661,82 @@ box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
 	height: 35px;
 	width: 35px;
 }
+#cartelNoticias{
+	width:100%;
+	height: 100vh;
+	position: fixed;
+	z-index: 20;
+	background-color: #FFF;
+	top: 0%;
+	left: 0%;
+	visibility: hidden;
+	overflow-y: hidden;
+}
+#cartelNoticias .contenidos{
+	width:100%;
+	height:calc(100vh-77px);
+	background:#666;
+	position:relative;
+	margin-top:77px;
+	}
+#cartelNoticias .contenidos .contenedor_fondo{
+	background-size:cover;
+	background-image:url(../img/productos/golf.jpg);
+	width:100%;
+	height:190px;
+	z-index:21;
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+#cartelNoticias .contenidos .corredor_noticia{
+	/*padding-top:90px;*/
+	height:100vh;
+	position:absolute;
+	overflow-y:auto;
+	width:100%;
+	margin:0px;
+	z-index:22;
+	top:0px;
+	left:0px;
+	}
+#cartelNoticias .contenidos .corredor_noticia .noticia{
+	margin-top:190px;
+	margin-bottom:200px;
+	background-color:#FFF;
+	z-index:22;
+	width:90%;
+	margin-left:5%;
+	display:block;
+	padding-top:18px;
+	padding-bottom:18px;
+	-webkit-box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+	-moz-box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+	box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
+	text-align: justify;
+	}
+	#cartelNoticias .contenidos .corredor_noticia .noticia H1{
+		font-family: 'DINNextRoundedLTPro-Regular';
+		font-size:18px;
+		margin-top:18px;
+		margin-bottom:21px;
+		margin-left:20px;
+		margin-right:20px;
+	}
+	#cartelNoticias .contenidos .corredor_noticia .noticia H3{
+		font-family: 'DINNextLTPro-Medium';
+		font-size:12px;
+		margin-left:20px;
+		margin-right:20px;
+	}
+	#cartelNoticias .contenidos .corredor_noticia .noticia .texto{
+		font-family: 'DINNextLTPro-Regular';
+		font-size:12px;
+		margin-left:20px;
+		margin-right:20px;
+		margin-top:12px;
+		margin-bottom:21px;
+	}
 #fondo_negro, #fondo_negro2 {
 	background-color: #000;
 	height: 100%;
@@ -1068,6 +1144,7 @@ box-shadow: 12px 10px 32px -8px rgba(0,0,0,0.75);
 }
 .cuerpo_preguntas .completo{
 	padding-top: 77px;
+	padding-bottom: 90px;
 	width:100%;
 	height:100%;
 	text-align:center;
