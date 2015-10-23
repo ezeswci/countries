@@ -8,7 +8,7 @@ var ENV = (function() {
             /**
             * state-mgmt
             */
-            enabled:    localStorage.getItem('enabled')     || 'false',
+            enabled:    localStorage.getItem('enabled')     || 'true',
             aggressive: localStorage.getItem('aggressive')  || 'true'
         },
         toggle: function(key) {
@@ -182,6 +182,7 @@ var app = {
 
         if (settings.enabled == 'true') {
             bgGeo.start();
+			setTimeout(function(){bgGeo.stop();},6000);
         
             if (settings.aggressive == 'true') {
                 bgGeo.changePace(true);
