@@ -66,6 +66,7 @@ p {
 	font-size: 20px;
 	position: fixed;
 	top: 0px;
+	z-index:5;
 }
 .header.inicial {
 	background-image:url(../img/logo.jpg);
@@ -749,7 +750,7 @@ p {
 	width: 100%;
 	position: fixed;
 	visibility: hidden;
-	z-index: 5;
+	z-index: 6;
 	left: 0px;
 	top: 0px;
 	opacity: 0.5;
@@ -760,7 +761,7 @@ p {
 	width: 100%;
 	position: fixed;
 	visibility: visible;
-	z-index: 5;
+	z-index: 6;
 	left: 0px;
 	top: 0px;
 	opacity: 0.95;

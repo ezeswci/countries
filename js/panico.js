@@ -19,11 +19,12 @@ function apretoPanico(elemento){
 	if(elemento.src.indexOf("boton_empezar")!=-1){
 		elemento.src="img/boton_parar.jpg";
 		posiblidadCancelarPanico();
+		setTimeout(function(){desactivarPanico(elemento);},6000);
 		activarPanico();
-		setTimeout(function(){desactivarPanico(elemento);},6000)
+		
 	}
 }
-function desactivarPanico(){
+function desactivarPanico(elemento){
 	elemento.src="img/boton_empezar.jpg";
 	detenerPanico();
 }
