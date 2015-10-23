@@ -3,7 +3,8 @@
  var pushNotification;
             
 function onDeviceReady() {
-$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
+//$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
+alert('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
     pushNotification.register(
     successHandler,
