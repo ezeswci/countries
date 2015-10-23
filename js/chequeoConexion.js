@@ -1,6 +1,6 @@
 // JavaScript Document
 function checkConnection() {
-    /**/var networkState = navigator.connection.type;
+    /*var networkState = navigator.connection.type;
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
@@ -16,7 +16,7 @@ function checkConnection() {
 	}else{
 		alert("conectado"+navigator.connection.type);
 		return true;
-	}
+	}*/
 	return true;// Prueba interna 
     //alert('Connection type: ' + states[networkState]);
 }
