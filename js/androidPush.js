@@ -1,8 +1,9 @@
 // JavaScript Document
 // Esta es la version para Android, aun que el mismo formato es aplicable a todas las plataformas
  var pushNotification;
-            
-function onDeviceReady() {
+ window.regId=0000;
+document.addEventListener("deviceready", onDeviceReadyPush, false);
+function onDeviceReadyPush() {
 //$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
 alert('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
