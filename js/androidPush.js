@@ -8,14 +8,17 @@ function onDeviceReadyPush() {
 //$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
 alert('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-    window.pushNotification.register(
+	alert("si, entro");
+    pushNotification.register(
     successHandler,
     errorHandler,
     {
         "senderID":"miclubhouse-1097",
         "ecb":"onNotification"
     });
-}
+}else{
+	alert("no entro");
+	}
 }
 // Android and Amazon Fire OS
 function onNotification(e) {
@@ -87,7 +90,8 @@ function onNotification(e) {
 }
 // Handelers
 function successHandler (result) {
-    alert('result = ' + result);
+    alert('result al registro = ' + result);
+	window.regId=result;
 }
 // result contains any error description text returned from the plugin call
 function errorHandler (error) {
