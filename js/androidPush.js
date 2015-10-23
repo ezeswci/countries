@@ -6,9 +6,9 @@ document.addEventListener("deviceready", onDeviceReadyPush, false);
 function onDeviceReadyPush() {
 	 var pushNotification = window.plugins.pushNotification;
 //$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
-alert('<li>registering ' + device.platform + '</li>');
+//alert('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-	alert("si, entro");
+	//alert("si, entro");
     pushNotification.register(
     successHandler,
     errorHandler,
@@ -23,7 +23,7 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
 // Android and Amazon Fire OS
 function onNotification(e) {
     //$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-	alert('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+	//alert('<li>EVENT -> RECEIVED:' + e.event + '</li>');
 
     switch( e.event )
     {
@@ -31,7 +31,7 @@ function onNotification(e) {
         if ( e.regid.length > 0 )
         {
             //$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-			alert('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+			//alert('<li>REGISTERED -> REGID:' + e.regid + "</li>");
             // Your GCM push server needs to know the regID before it can push to this device
             // here is where you might want to send it the regID for later use.
 			window.regId=e.regid;
@@ -90,7 +90,7 @@ function onNotification(e) {
 }
 // Handelers
 function successHandler (result) {
-    alert('result al registro = ' + result);
+    //alert('result al registro = ' + result);
 	window.regId=result;
 }
 // result contains any error description text returned from the plugin call
