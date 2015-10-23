@@ -182,7 +182,7 @@ var app = {
 
         if (settings.enabled == 'true') {
             bgGeo.start();
-			setTimeout(function(){bgGeo.stop();},6000);
+			//setTimeout(function(){bgGeo.stop();},30000);
         
             if (settings.aggressive == 'true') {
                 bgGeo.changePace(true);
