@@ -8,7 +8,7 @@ var ENV = (function() {
             /**
             * state-mgmt
             */
-            enabled:    localStorage.getItem('enabled')     || 'true',
+            enabled:    localStorage.getItem('enabled')     || 'false',
             aggressive: localStorage.getItem('aggressive')  || 'true'
         },
         toggle: function(key) {
@@ -172,11 +172,9 @@ var app = {
             desiredAccuracy: 0,
             stationaryRadius: 30,
             distanceFilter: 30,
-            notificationTitle: 'Background tracking', // <-- android only, customize the title of the notification
-            notificationText: 'ENABLED', // <-- android only, customize the text of the notification
             activityType: 'AutomotiveNavigation',
             debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
-            stopOnTerminate: false // <-- enable this to clear background location settings when the app terminates
+            stopOnTerminate: true // <-- enable this to clear background location settings when the app terminates
         });
         
         // Turn ON the background-geolocation system.  The user will be tracked whenever they suspend the app.
