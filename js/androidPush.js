@@ -4,10 +4,11 @@
  window.regId=0000;
 document.addEventListener("deviceready", onDeviceReadyPush, false);
 function onDeviceReadyPush() {
+	 var pushNotification = window.plugins.pushNotification;
 //$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
 alert('<li>registering ' + device.platform + '</li>');
 if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-    pushNotification.register(
+    window.pushNotification.register(
     successHandler,
     errorHandler,
     {
