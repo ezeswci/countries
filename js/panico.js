@@ -1,5 +1,6 @@
 // JavaScript Document
 //window.passestado; 0- apagado 1-prendido 2-simulado 
+/*
 document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
 	cordova.plugins.backgroundMode.enable();
@@ -13,22 +14,17 @@ function verificarPanico(){
 			if(window.passestado==2){
 			activarPanicoRevision();
 		}}
-}
+}*/
 function apretoPanico(elemento){
-	//alert(elemento.src);
 	if(elemento.src.indexOf("boton_empezar")!=-1){
 		elemento.src="img/boton_parar.jpg";
 		posiblidadCancelarPanico();
 		activarPanico();
-		setTimeout(function(){elemento.src="img/boton_empezar.jpg";},3000)
-	}/*else{
-		//desactivarPanico(); - Desactivar por sistema?
-	}*/
+		setTimeout(function(){desactivarPanico(elemento);},6000)
+	}
 }
 function desactivarPanico(){
-	//document.getElementById("cartel").style.visibility="visible";
-	//document.getElementById("fondo_negro").style.visibility="visible";
-	// Lo anterior le pide la clave, etc
+	elemento.src="img/boton_empezar.jpg";
 	detenerPanico();
 }
 function cerrarTodo(){
@@ -37,8 +33,6 @@ function cerrarTodo(){
 }
 
 function detenerPanico(){
-	//document.getElementById("img_panic").src="img/boton_empezar.jpg";
-	//estadoDePanico(0);
 	dejarDeTrasmitirGps();
 	
 }
@@ -47,18 +41,19 @@ function activarPanico(){
 	//estadoDePanico(1);
 	//enviarMensajes();
 	//if(window.llamadaSecreta==1){startAudioRec();}
-	if(cordova.plugins.backgroundMode.isEnabled()!=true){cordova.plugins.backgroundMode.enable();}
+	//if(cordova.plugins.backgroundMode.isEnabled()!=true){cordova.plugins.backgroundMode.enable();}
 	enviarMensajeServidor();
 	//salidaMagica();
 	//document.location.href = 'tel:+01148127101';
 }
+/*
 function activarPanicoRevision(){
 	empezarATrasmitirGps();
 	//estadoDePanico(1);
 	//if(window.llamadaSecreta==1){startAudioRec();}
 	if(cordova.plugins.backgroundMode.isEnabled()!=true){cordova.plugins.backgroundMode.enable();}
 	//document.location.href = 'tel:+01148127101';
-}
+}*/
 function posiblidadCancelarPanico(){
 	document.getElementById("cartel").style.visibility="visible";
 	document.getElementById("fondo_negro").style.visibility="visible";

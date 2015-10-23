@@ -10,6 +10,8 @@ window.db;
 //window.passreal;
 //window.passfalsa;
 window.lotUsuId;
+window.consultaInvitados=new Array();// La consulta echa
+window.delet_id;
 // PhoneGap is ready
 //
 function onDeviceReady() {
@@ -66,39 +68,47 @@ function querySuccessUsuId(tx, rs) {
 }
 // Enlisto todos los invitados y los adjunto al panel
 function selectInvitados(tx) {
-    tx.executeSql('SELECT * FROM INVITADOS', [], querySuccess, errorCB);
+    tx.executeSql('SELECT * FROM INVITADOS ORDER BY inv_mod DESC', [], querySuccess, errorCB);
 }
 function querySuccess(tx, rs) {
     // this will be empty since no rows were inserted.
-
+	window.consultaInvitados;// Esta es la consulta de todos los invitados tal cual la mostramos.
     for (var i = 0; i < rs.rows.length; i++) {
         var p = rs.rows.item(i);
+		window.consultaInvitados[i]=p;
 		//alert('rowid'+p.rowid);
-        var element = parseINVITADOS(p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod);
-		verificarEstadoInvitado(i+1,p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod);
+        var element = parseINVITADOS(p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod, i);
+		//verificarEstadoInvitado(i+1,p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod); No lo hacemos recien lo carga por si no tiene internet
         //alert(element);
         $(".historial").append(element);
     }
+	setTimeout(function(){actualizar();},3000);
 }
-function parseINVITADOS(inv_id, inv_nombre, inv_estado, modificado){
-	modificado=utcformat(modificado);//(new Date(modificado)).toUTCString();
+function parseINVITADOS(inv_id, inv_nombre, inv_estado, modificado, parimpar){
+	diafecha=utcformat(modificado);//(new Date(modificado)).toUTCString();
 	if(inv_estado<4){
 		var estado;
 		switch(inv_estado) {
     case 0:
-        estado='Enviando';
+        estado='<img src="img/estados/enviando.png" id="img_inv_'+modificado+'" class="estado" />';//'Enviando';
         break;
     case 1:
-        estado='Recibido';
+        estado='<img src="img/estados/recibido.png" id="img_inv_'+modificado+'" class="estado" />';//'Recibido';
         break;
 	case 2:
-        estado='Entro';
+        estado='<img src="img/estados/procesado.png" id="img_inv_'+modificado+'" class="estado" />';//'Entro';
         break;
 	case 3:
-        estado='Cancelado';
+        estado='cancelado';//'Cancelado'; borrarContactoEstado(i,inv_mod)
         break;
 	}
-    return '<div class="historial_item"><div class="texto"><div class="fecha">'+modificado+'</div><div onclick="borrarContacto('+inv_id+',this)" class="borrar">Cancelar</div><div class="contacto"><strong>'+inv_nombre+': </strong>'+estado+'</div></div></div>';}else{
+	if(parimpar%2==0){clase='texto';}else{clase='texto par';}
+		if(estado!='cancelado'){
+    	return '<div class="historial_item" id="historial_item_'+(modificado)+'"><div class="'+clase+'"><div class="fecha">'+diafecha+'</div><div onclick="borrarContacto('+modificado+','+parimpar+',this)" class="borrar"><p>X</p></div><div class="contacto">'+inv_nombre+'</div>'+estado+'</div></div>';}else{
+		return '';
+		}
+	
+	}else{
 		return '';
 	}
 }
@@ -115,7 +125,7 @@ function agregarManual(){
 
 function agregarSMSManual(){
 	document.getElementById("cartel2").style.visibility="hidden";
-	document.getElementById("cartel3").innerHTML='<div class="titulo"><p>INGRESE LOS DATOS</p></div><div class="content"><p>Ingrese el nombre del Invitado.</p><table width="100%"><tr><td width="20%">Nombre:</td><td><input type="text" id="con_nombre" autocomplete="off" ></td></tr></table></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="agregarAgenda();" class="boton der"><p>AGREGAR</p></div></div></div>';
+	document.getElementById("cartel3").innerHTML='<div class="titulo"><p>INGRESE LOS DATOS</p></div><div class="content"><p>Ingrese el nombre del Invitado.</p><table width="100%" style=" margin-top:15px;"><tr><td width="20%">Nombre:</td><td><input type="text" id="con_nombre" autocomplete="off" ></td></tr></table><table style=" margin-bottom:25px;" width="100%"><tr><td width="20%">Apellido:</td><td><input type="text" id="con_apellido" autocomplete="off" ></td></tr></table></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="agregarAgenda();" class="boton der"><p>AGREGAR</p></div></div></div>';
 	document.getElementById("cartel3").style.visibility="visible";
 }/*
 function agregarMailManual(){
@@ -127,7 +137,7 @@ function successCBS(){
 	window.location='invitados.html';
 }
 function insertContactoManual(tx){
-	 nombre=document.getElementById("con_nombre").value;
+	 nombre=document.getElementById("con_nombre").value.capitalize()+" "+document.getElementById("con_apellido").value.capitalize();
 	 estado=0;
 	 quien=window.lotUsuId;
 	 cuando=Date.now();
@@ -136,16 +146,19 @@ function insertContactoManual(tx){
      tx.executeSql(query, [nombre, estado, quien, cuando]);
 	 
 }
-function borrarContacto(id,element){
+function borrarContacto(modificado,i,element){
 	element=element.parentNode;
 	element.parentNode.style.display="none";
-	window.delet_id=id;
-	//window.db.transaction(borrarContactoId, errorCB, successELI);
+	//borrarContactoEstado(i,modificado)
+	window.delet_id=modificado;
+	window.consultaInvitados[i].inv_estado=3;
+	window.db.transaction(borrarContactoId, errorCB, successELI);
+	// Ver de sacarlo del arreglo cunado lo elimino
 	// El cancelar tiene que ser distinto
 }
 function borrarContactoId(tx){
-	 id=window.delet_id;
-	 tx.executeSql('DELETE FROM INVITADOS WHERE inv_id = ?', [id], successELI, errorCB);
+	 modificado=window.delet_id;
+	 tx.executeSql('DELETE FROM INVITADOS WHERE inv_mod = ?', [modificado], successELI, errorCB);
 	 
 }
 function successELI(){
@@ -156,7 +169,7 @@ function crearAviso(tipo){
 	contenidoAviso="El contacto fue eliminado";}else if(tipo==2){
 	contenidoAviso="Error al Intentar borrar el contacto";}else if(tipo==3){
 	contenidoAviso="El contacto fue Agregado";}else if(tipo==4){
-	contenidoAviso="La clave no es correcta, intente nuevamente";}
+	contenidoAviso="Es obligatorio completar el Nombre y el Apellido";}
 	document.getElementById("contAlert").innerHTML=contenidoAviso;
 	document.getElementById("cartel4").style.visibility="visible";
 	document.getElementById("fondo_negro2").style.visibility="visible";
@@ -174,9 +187,14 @@ function cerrarTodo(){
 	document.getElementById("fondo_negro3").style.visibility="hidden";
 }
 function agregarAgenda(){
+	nombre=document.getElementById("con_nombre").value;
+	apellido=document.getElementById("con_apellido").value;
+	if(nombre.length<1 || apellido.length<1){
+		 crearAviso(4);
+	}else{
 	db=window.db;
 	db.transaction(insertContactoManual, errorCB, successCBS);
-	document.getElementById("cartel3").style.visibility="hidden";
+	document.getElementById("cartel3").style.visibility="hidden";}
 }
 // Darle el formato a la fecha 
 
@@ -186,5 +204,8 @@ function utcformat(d){
 	mes= d.getMonth();// que mes
 	hora= d.getHours();// hora
 	minutos=d.getMinutes();// minutos
-    return hora+':'+minutos+' - '+dia+'/'+mes;
+    return '<div class="dia">'+dia+'/'+mes+'</div><div class="hora">'+hora+':'+minutos+'</div>';
+}
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
