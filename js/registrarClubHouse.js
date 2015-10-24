@@ -4,7 +4,7 @@ function registrarClubHouse(){
 	var udid=device.uuid;//"123456";
 	//var udid="123456";
 	var regId=window.regId;
-	alert(regId);
+	//alert(regId);
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari

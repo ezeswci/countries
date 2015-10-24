@@ -13,7 +13,7 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
     successHandler,
     errorHandler,
     {
-        "senderID":"miclubhouse-1097",
+        "senderID":"333926187311",
         "ecb":"onNotification"
     });
 }else{
