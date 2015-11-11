@@ -145,7 +145,7 @@ function actualizarReserva(i,re_id,re_hora, re_fecha,re_can_id,re_estad){
 			 return;
 			}
 	 	 }
-		xmlhttp.open("POST",ipSend+"leer_reserva.php",false);
+		xmlhttp.open("POST",ipSend+"leer_reserva.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("re_id="+re_id);
 		}

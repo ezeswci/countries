@@ -88,7 +88,7 @@ function enviarMensajeServidor(){
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
 	 	 }
-		xmlhttp.open("POST",ipSend+"activar_alerta.php",false);
+		xmlhttp.open("POST",ipSend+"activar_alerta.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
 		}
@@ -121,7 +121,7 @@ function avisarError(){
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
 	 	 }
-		xmlhttp.open("POST",ipSend+"cancelar_alerta.php",false);
+		xmlhttp.open("POST",ipSend+"cancelar_alerta.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
 		}

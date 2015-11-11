@@ -40,7 +40,7 @@ function actualizarNovedades(){
 			 return;
 			}
 	 	 }
-		xmlhttp.open("POST",ipSend+"leer_novedades.php",false);// Que no se trabe por culpa de esto
+		xmlhttp.open("POST",ipSend+"leer_novedades.php",true);// Que no se trabe por culpa de esto
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("ultMod="+ultMod);
 		}

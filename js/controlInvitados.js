@@ -160,7 +160,7 @@ function actualizarInvitado(i,inv_mod,inv_id, inv_estado){
 			 return;
 			}
 	 	 }
-		xmlhttp.open("POST",ipSend+"leer_invitado.php",false);
+		xmlhttp.open("POST",ipSend+"leer_invitado.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("in_lousu_id="+inv_id);
 		}
