@@ -6,8 +6,8 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	var lectura=document.getElementById("codigo").value;
 	var codigos=lectura.split("-");
 	var codigo=codigos[0];
-	//var udid=device.uuid;//"123456";
-	var udid="123456";
+	var udid=device.uuid;//"123456";
+	//var udid="123456";
 	var regId=window.regId;
 	//alert(regId);
 	var xmlhttp;
