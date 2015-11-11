@@ -75,11 +75,11 @@ function querySuccess(tx, rs) {
     // this will be empty since no rows were inserted.
 	//alert(rs.rows.length);
 	if(rs.rows.length>0){
-		window.sis_tabs=p.sis_tabs.split("/");
-		if(window.sis_tabs[0]!=0){ window.location = "noticias.html";}
+		tabs=window.sis_tabs.split("/");
+		if(tabs[0]!=0){ window.location = "noticias.html";}
 		else{
-				if(window.sis_tabs[1]!=0){window.location = "invitados.html";}else{
-					if(window.sis_tabs[2]!=0){ window.location = "emergencia.html";}
+				if(tabs[1]!=0){window.location = "invitados.html";}else{
+					if(tabs[2]!=0){ window.location = "emergencia.html";}
 					else{window.location = "reservas.html";}
 				}
 	
