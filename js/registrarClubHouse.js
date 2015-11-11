@@ -118,11 +118,12 @@ window.requestFileSystem(window.LocalFileSystem.PERSISTENT, 0, function(fs)
 
     fileTransfer.download(uri, filePath, function(entry)
     {
-        alert("Successfully downloaded file, full path is " + entry.fullPath);
-		window.archivo=entry.fullPath;
+        alert("Successfully downloaded file, full path is " + entry.toURL());
+		window.archivo=entry.toURL();
     },
     function(error)
     {
+		//error 1
         alert("Some error " + error.code + " for " + url );
     }, 
     false);
@@ -131,6 +132,7 @@ window.requestFileSystem(window.LocalFileSystem.PERSISTENT, 0, function(fs)
 	registrarEnBase();
 }
 function moverArchivo(){
+	alert("muevo archivo");
 	var object = new ActiveXObject("Scripting.FileSystemObject");
    	var file = object.GetFile(window.archivo);
    	file.Move("img/");
