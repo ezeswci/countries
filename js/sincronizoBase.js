@@ -1,4 +1,4 @@
-$(document).ready(onDeviceReady);
+//$(document).ready(onDeviceReady);
 
 //Global database
 //
