@@ -68,6 +68,7 @@ function enviarMensajeServidor(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
 	var lot_usu=window.lotUsuId;
 	var usu_udid=device.uuid;
+	var ipSend=window.sis_ip;
 	if(checkConnection()){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
@@ -87,7 +88,7 @@ function enviarMensajeServidor(){
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
 	 	 }
-		xmlhttp.open("POST","http://swci.com.ar/cc/api/activar_alerta.php",false);
+		xmlhttp.open("POST",ipSend+"activar_alerta.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
 		}
@@ -97,6 +98,7 @@ function enviarMensajeServidor(){
 }
 function avisarError(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
+	var ipSend=window.sis_ip;
 	cerrarAviso();
 	var lot_usu=window.lotUsuId;
 	var usu_udid=device.uuid;
@@ -119,7 +121,7 @@ function avisarError(){
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
 	 	 }
-		xmlhttp.open("POST","http://swci.com.ar/cc/api/cancelar_alerta.php",false);
+		xmlhttp.open("POST",ipSend+"cancelar_alerta.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
 		}

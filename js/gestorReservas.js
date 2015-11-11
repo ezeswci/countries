@@ -1,34 +1,38 @@
 // JavaScript Document
 function abrirReservas (){
-	//document.getElementById("cartel").style.visibility="visible";
+	var ipSend=window.sis_ip;
+	document.getElementById("cartel").innerHTML='<div class="titulo"><p>TIPO DE RESERVA</p></div><div class="content"><p>Haga click en el tipo de reserva que desea gestionar.</p></div><div class="content_export" id="content_canchas"><div class="loader"></div></div><div class="botones"><div onclick="cerrarTodo();" class="boton_unico"><p>CANCELAR</p></div></div>';	 
+	document.getElementById("cartel").style.visibility="visible";
 	document.getElementById("fondo_negro").style.visibility="visible";
-	agregarActividadesDisponibles();
+	if(checkConnection()){
+		if (window.XMLHttpRequest)
+	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  		xmlhttp=new XMLHttpRequest();
+	  		}
+		else
+	  	{// code for IE6, IE5
+	 	 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	 	 }
+		xmlhttp.onreadystatechange=function()
+	  	{
+	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+			document.getElementById("content_canchas").innerHTML=xmlhttp.responseText;
+			return;
+			
+	    }else if(xmlhttp.status==503 || xmlhttp.status==404){// Esto es si el servidor no le llega a poder responder o esta caido
+			 abrirReservas ();
+			}
+	 	 }
+		xmlhttp.open("POST",ipSend+"ver_deportes.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send();
+		}
+		else{ return;
+		}
 }
 function cerrarTodo(){
 	document.getElementById("cartel").style.visibility="hidden";
 	document.getElementById("fondo_negro").style.visibility="hidden";
 }
 
-function agregarActividadesDisponibles(){
-	var deporte6 = new Deporte("Squash", "dir.html");
-	var deporte7 = new Deporte("Tenis", "dir.html");
-	var deporte5 = new Deporte("Polo", "dir.html");
-	var deporte3 = new Deporte("Golf", "dir.html");
-	var deporte2 = new Deporte("Futbol", "dir.html");
-	var deporte4 = new Deporte("Padel", "dir.html");
-	var deporte1 = new Deporte("Eventos", "dir.html");
-
-	deportes=new Array(deporte1,deporte2,deporte3,deporte4,deporte5,deporte6,deporte7);
-	agregarActividadesDisponiblesVentana(deportes);
-}
-function agregarActividadesDisponiblesVentana(depo){
-	//alert("Entre a agregar agenda");
-	var texto=" ";
-	for (var b in depo) {
-	   texto +='<div class="deportes_item" onclick="mostrarDeporte(\'' +depo[b].nombre+ '\',\'' +depo[b].id+ '\')"><p>'+depo[b].nombre+' </p></div>';
-   }
-   
-	
-	document.getElementById("cartel").innerHTML='<div class="titulo"><p>TIPO DE RESERVA</p></div><div class="content"><p>Haga click en el tipo de reserva que desea gestionar.</p></div><div class="content_export">'+texto+'</div><div class="botones"><div onclick="cerrarTodo();" class="boton_unico"><p>CANCELAR</p></div></div>';	 
-document.getElementById("cartel").style.visibility="visible";
-}

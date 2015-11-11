@@ -4,11 +4,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Country</title>
-     <script src="cordova.js" type="text/javascript"></script>
+    <script src="cordova.js" type="text/javascript"></script>
     <script src="js/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/reservas.js" type="text/javascript"></script>
+    <script src="js/controlReservas.js" type="text/javascript"></script>
 	<script src="js/gestorReservas.js" type="text/javascript"></script>
     <script src="js/gestorReservasEspecifico.js" type="text/javascript"></script>
-    <script src="js/objetosDeportes.js" type="text/javascript"></script>
+    <script src="js/chequeoConexion.js" type="text/javascript"></script>
     <link href="css/estilos.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
@@ -28,24 +30,21 @@
 
     <div class="historial">
         <!--    WRAPPER DEL HISTORIAL    -->
-        <div class="historial_item">
-        
-        </div>
         <!-- Fin del Wrapper -->
         
     </div>
     
     <div class="footer">
-        <a href="noticias.html">
+        <a href="noticias.html" id="botNoticiasFoot" >
             <img src="img/noticias.png" width="135" height="135" />
         </a>
-        <a href="invitados.html">
+        <a href="invitados.html" id="botInvitadosFoot">
             <img src="img/perfil.png" width="135" height="135" />
         </a>
-        <a href="emergencia.html">
+        <a href="emergencia.html" id="botEmergenciasFoot">
             <img src="img/seguridad.png" width="135" height="135" />
         </a>
-        <a href="reservas.html">
+        <a href="reservas.html" id="botReservasFoot">
             <img src="img/reservas_hover.png" width="135" height="135" />
         </a>
         <a href="mas.html">
@@ -62,14 +61,14 @@
  <div id="cartel3" class="cartel">
  </div>
  <div id="cartel4" class="cartel" style="z-index:99;">
-        <div class="titulo">AVISO</div>
+        <div class="titulo"><p>AVISO</p></div>
         <br />
         	<div class="content">
         		<div id="contAlert"></div>
         	</div>
          <br />
         	<div class="botones">
-            	<div onclick="cerrarAviso();" class="boton_unico">ACEPTAR</div>
+            	<div onclick="cerrarAviso();" class="boton_unico"><p>ACEPTAR</p></div>
         	</div>
  </div>
 

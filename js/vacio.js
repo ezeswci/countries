@@ -70,13 +70,20 @@ function querySuccess(tx, rs) {
     // this will be empty since no rows were inserted.
 	//alert(rs.rows.length);
 	if(rs.rows.length>0){
-		window.location = "noticias.html";
+		var p = rs.rows.item(0);
+		window.sis_tabs=p.sis_tabs.split("/");
+		
+		if(window.sis_tabs[0]!=0){ window.location = "noticias.html";}
+		else{
+				if(window.sis_tabs[1]!=0){window.location = "invitados.html";}else{
+					if(window.sis_tabs[2]!=0){ window.location = "emergencia.html";}
+					else{window.location = "reservas.html";}
+				}
+	
+			}
+		//window.location = "noticias.html";
 	}else{
-		//alert("sin usuario"); */
-		/*
-		db=window.db;
-		 db.transaction(insertUsu, errorCB);// Remplaza el sincronizar
-		 setTimeout(function(){window.location = "noticias.html";},3000)*/
+		
 		 window.location = "sincronizar.html";
 		// -- cuando tenga q sincronizar
 		//window.location = "noticias.html";

@@ -1,32 +1,95 @@
 // JavaScript Document
 window.noticias=new Array();
-window.onload=cargarNoticias()
+window.ultActulizacion=0;
+$(document).ready(onDeviceReady);
 
-function cargarNoticias(){
-	window.noticias[2]={titulo:"Torneo Apertura 2015 del Futbol Intercountry (AIF)", foto:"img/productos/futbol.jpg", resumen:"Este fin de semana arranca la temporada de futbol intercountry, te esperamos para que te anotes asi podes jugar esta temporada.",  descript:"Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Futbol"};
-	window.noticias[1]={titulo:"Gran torneo Padres e Hijos + almuerzo en familia", foto:"img/productos/golf.jpg", resumen:"Sabado 18/8 Torneo en la cancha 9, inscripciones abiertas",  descript:"Aca va la noticia, con los detalles de la misma, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Golf"};
-	window.noticias[0]={titulo:"comienza el Abierto de polo Tortugas 2015. Venta de Entradas para todos los partidos.", foto:"img/productos/polo.jpg", resumen:"Conozca los partidos que se vienen, horarios y demas",  descript:"Aca va la noticia, con los detalles de la misma, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Futbol"};
-	window.noticias[3]={titulo:"Oportunidad en Penn Atp Citenis Circuito Intercountry", foto:"img/productos/padel.jpg", resumen:"Todos los sabados y domingos, clases gratis a las 16Hs",  descript:"Aca va la noticia, con los detalles de la misma, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Padel"};
-	window.noticias[4]={titulo:"Entrega de Premios para sub 20 - Tenis y Padel!", foto:"img/productos/premios.jpg", resumen:"Entrega de premios en el house principal",  descript:"Aca va la noticia, con los detalles de la misma, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Tenis"};
-	window.noticias[5]={titulo:"Comienza el Circuito verano 2015 - Paleta y Squash! ", foto:"img/productos/squash.jpg", resumen:"Se viene el torneo de squash interno, no olvides que tenes hasta el 20/8 para anotarte",  descript:"Aca va la noticia, con los detalles de la misma, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore. olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore olor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et doloreolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.Aca va alguna descripci&oacute;n del producto, Lorem ipsum dolor sit amet, do eiusmod tempor incididunt ut labore et dolore.", tipo:"Squash"};
+function onDeviceReady() {
+    var dbSize = 200000;
+    var dbName = "CCA";
+    var dbVersion = "1.0";
+    var dbDisplayName = "CCAppDatabase";
+	//alert("Empieza");
+    //Init DB
+    //
+    window.db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
+   	window.db.transaction(initDB, errorCB, successCB);
+
+}
+
+function initDB(tx) {
+	//(no_id,no_titulo, no_tipo, no_fecha, no_prio,no_copete, no_contenido, no_img, no_estado, no_modif)
+    tx.executeSql('CREATE TABLE IF NOT EXISTS NOTICIAS (no_id , no_titulo, no_tipo, no_fecha, no_prio,no_copete, no_contenido, no_img, no_estado, no_modif  )');// Inivtados estado 0-enviado 1-recibido 2-entro 3-cancelado 4-no aparece entro 5- no aparece canceldo
+}
+
+// Transaction error callback
+//
+function errorCB(tx, err) {
+    alert("Error processing SQL: " + err);
+}
+
+// Transaction success callback
+//
+function successCB() {
+    //alert("Success!");
+    //Select query
+    //
+	db.transaction(selectLotUsuId, errorCB);
+	db.transaction(selectNoticias, errorCB);
 	
+}
+function selectLotUsuId(tx) {
+    tx.executeSql('SELECT * FROM LOT_USU', [], querySuccessUsuId, errorCB);
+}
+function querySuccessUsuId(tx, rs) {
+    // this will be empty since no rows were inserted.
+
+    for (var i = 0; i < rs.rows.length; i++) {
+        var p = rs.rows.item(i);
+		window.lotUsuId=p.lu_id;
+		window.sis_ip=p.sis_ip;
+		window.sis_tabs=p.sis_tabs.split("/");
+		cargoOpcionesDeMenu();
+    }
+}
+function cargoOpcionesDeMenu(){
+	// sis_tabs son los tabs que el country tiene disponibles Noticias - visitas- emergencias - reservas
+	if(window.sis_tabs[0]==0){ document.getElementById("botNoticiasFoot").style.display="none";}
+	if(window.sis_tabs[1]==0){ document.getElementById("botInvitadosFoot").style.display="none";}
+	if(window.sis_tabs[2]==0){ document.getElementById("botEmergenciasFoot").style.display="none";}
+	if(window.sis_tabs[3]==0){ document.getElementById("botReservasFoot").style.display="none";}
+}
+
+function selectNoticias(tx) {
+    tx.executeSql('SELECT * FROM NOTICIAS ORDER BY no_prio, no_modif DESC', [], querySuccess, errorCB);
+}
+function querySuccess(tx, rs) {
+    // this will be empty since no rows were inserted.
+	window.noticias=new Array();// Esta es la consulta de todos los invitados tal cual la mostramos.
+    for (var i = 0; i < rs.rows.length; i++) {
+        var p = rs.rows.item(i);
+		window.noticias[i]={titulo:p.no_titulo, foto:p.no_img, resumen:p.no_copete,  descript:p.no_contenido, tipo:p.no_tipo, id:p.no_id};
+		guardoFechaMasGrande(p.no_modif);
+    }
 	mostrarNoticias();
 }
+
 function mostrarNoticias(){
-	//alert("Entre a agregar agenda");
+	//alert("Entre a mostrarNoticias");
 	if(document.getElementById("contiene_noticias")!=null){
 	var texto=" ";
 	var primero=0;
 	for (var b in window.noticias){ 
 	
 		if(primero!=0){
-	   texto +='<div class="noticias" onclick="openNoticia('+b+')"><div class="not_img" style="background-image:url('+window.noticias[b].foto+');"></div><div class="titulo" > '+window.noticias[b].titulo+'</div><div class="copete">'+window.noticias[b].resumen+'</div></div><div class="separador"></div>';
+	   texto +='<div class="noticias" onclick="openNoticia('+b+')"><div class="not_img" style="background-image:url('+window.noticias[b].foto+'); background-size: cover;"></div><div class="titulo" > '+window.noticias[b].titulo+'</div><div class="copete">'+window.noticias[b].resumen+'</div></div><div class="separador"></div>';
 	   }else{
 		   primero=1;
-		   texto +='<div class="noticias" onclick="openNoticia('+b+')"><div class="primera_titulo" > '+window.noticias[b].titulo+'</div><div class="primera_img" style="background-image:url('+window.noticias[b].foto+');"></div></div><div class="separador"></div>';
+		   texto +='<div class="noticias" onclick="openNoticia('+b+')"><div class="primera_titulo" > '+window.noticias[b].titulo+'</div><div class="primera_img" style="background-image:url('+window.noticias[b].foto+'); background-size: cover;"></div></div><div class="separador"></div>';
    }
    }
-   document.getElementById("contiene_noticias").innerHTML=texto;}
+   document.getElementById("contiene_noticias").innerHTML=texto;
+   setTimeout(function(){actualizarNovedades();},3000);
+   }
 	else{ setTimeout(function(){mostrarNoticias();},50);}
 }
 function openNoticia(cual){
@@ -40,4 +103,24 @@ function cerrarPopUp(){
 	document.getElementById("cartelNoticias").style.visibility="hidden";
 	document.getElementById("fondo_negro").style.visibility="hidden";
 	document.getElementById("cartelNoticias").innerHTML=" ";
+}
+function guardoFechaMasGrande(no_modif){
+	if(window.ultActulizacion==0){
+		window.ultActulizacion=no_modif;
+	}else{
+		fechaActual=window.ultActulizacion.substr(8,2)+'/'+window.ultActulizacion.substr(5,2)+'/'+window.ultActulizacion.substr(0,4)+' '+window.ultActulizacion.substr(11,8);
+		fechaNueva=no_modif.substr(8,2)+'/'+no_modif.substr(5,2)+'/'+no_modif.substr(0,4)+' '+no_modif.substr(11,8);
+		var Time1 = new Date(fechaActual);
+		var Time2 = new Date(fechaNueva);
+		if(Time1<Time2){
+			//alert("comparo: "+fechaActual+'-'+Time1+'--- Con: '+fechaNueva+'-'+Time2+'--- segunda mas grande ');
+			window.ultActulizacion=no_modif;
+		}else{
+			//alert("comparo: "+fechaActual+'-'+Time1+'--- Con: '+fechaNueva+'-'+Time2+'--- Primera mas grande ');
+		}
+	}
+	//window.ultActulizacion=0;
+	//2015-11-09 12:29:50 p.no_modif
+	//0123-56-89-12345678
+	//var Time1 = new Date("04/12/2013 01:03:00");
 }

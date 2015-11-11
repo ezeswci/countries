@@ -67,6 +67,7 @@ function verificarEstadoInvitado(i,inv_id, inv_nombre, inv_estado, inv_mod){
 	}
 }
 function crearInvitado(i,inv_nombre, inv_estado, inv_mod){
+	var ipSend=window.sis_ip;
 	//alert ("entre a crear un usuario con i="+i);
 	//alert("crearInvitado -- actualizo"+i+ "id por otro lado" +window.consultaInvitados.rows.item(i).inv_nombre);
 	if(checkConnection()){
@@ -95,7 +96,7 @@ function crearInvitado(i,inv_nombre, inv_estado, inv_mod){
 			 return;
 			}
 	 	 }
-		xmlhttp.open("POST","http://swci.com.ar/cc/api/nuevo_invitado.php",true);
+		xmlhttp.open("POST",ipSend+"nuevo_invitado.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("in_lousu_id="+lot+"&in_nombre="+inv_nombre);
 		}
@@ -129,6 +130,7 @@ function errorupd(){
 }
 function actualizarInvitado(i,inv_mod,inv_id, inv_estado){
 	//alert ("entre a actualizar un invitado:"+inv_id);
+	var ipSend=window.sis_ip;
 	if(checkConnection() && inv_id>0){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
@@ -158,7 +160,7 @@ function actualizarInvitado(i,inv_mod,inv_id, inv_estado){
 			 return;
 			}
 	 	 }
-		xmlhttp.open("POST","http://swci.com.ar/cc/api/leer_invitado.php",false);
+		xmlhttp.open("POST",ipSend+"leer_invitado.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("in_lousu_id="+inv_id);
 		}

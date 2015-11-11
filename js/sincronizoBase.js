@@ -3,7 +3,7 @@ $(document).ready(onDeviceReady);
 //Global database
 //
 var db;
-
+window.sis_vers_act="1.0";
 // PhoneGap is ready
 //
 function registrarEnBase() {
@@ -24,10 +24,12 @@ function registrarEnBase() {
 // Init the table
 //
 function initDB(tx) {
-    //tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIOS (usu_id, usu_udid, usu_nombre, usu_apellido, usu_celular, usu_estado)');
-	// Esto no estaba antes
-	//tx.executeSql('CREATE TABLE IF NOT EXISTS LOTES (lot_id, lot_nombre , lot_coun_id , lot_flia)');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo)');// tipo: 1- alpha 0-normal
+    //La tabla lote usuario tambien controla el sistema
+	// sis_ip a donde apunta
+	// sis_tabs son los tabs que el country tiene disponibles Noticias - visitas- emergencias - reservas // 0 no- 1 si ej: 0/1/1/0
+	// sis_vers_act  La utlima version disponible, por cada paso de entero es obligatorio actualizar
+	// sis_ult_ver  La utlima verificacion echa, hacer una por semana?
+	tx.executeSql('CREATE TABLE IF NOT EXISTS LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo, sis_ip, sis_tabs, sis_vers_act, sis_ult_ver)');// tipo: 1- alpha 0-normal
 	//tx.executeSql('CREATE TABLE IF NOT EXISTS COUNTRY (co_id, co_nombre)');
 }
 
@@ -60,8 +62,9 @@ function insertUsu(tx){
 	 //var query1 = 'INSERT INTO LOTES (lot_id, lot_nombre , lot_coun_id , lot_flia) VALUES (?,?,?,?)';
      //tx.executeSql(query1, [1, "T-63", 1, "Wernicke"]);
 	  /*Lo unico que va*/
-	 var query2 = 'INSERT INTO LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo) VALUES (?,?,?,?)';
-     tx.executeSql(query2, [window.lu_id, window.lu_lo_id, window.lu_usu_id, window.lu_tipo]); 
+	 sis_ult_ver= new Date();
+	 var query2 = 'INSERT INTO LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo, sis_ip, sis_tabs, sis_vers_act, sis_ult_ver) VALUES (?,?,?,?,?,?,?,?)';
+     tx.executeSql(query2, [window.lu_id, window.lu_lo_id, window.lu_usu_id, window.lu_tipo, window.sis_ip, window.sis_tabs, window.sis_vers_act, sis_ult_ver]); 
 	 
 	 tx.executeSql('SELECT * FROM LOT_USU', [], querySuccess, errorCB);
 	 //var query3 = 'INSERT INTO COUNTRY (co_id, co_nombre) VALUES (?,?)';

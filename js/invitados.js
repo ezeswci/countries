@@ -64,7 +64,17 @@ function querySuccessUsuId(tx, rs) {
     for (var i = 0; i < rs.rows.length; i++) {
         var p = rs.rows.item(i);
 		window.lotUsuId=p.lu_id;
+		window.sis_ip=p.sis_ip;
+		window.sis_tabs=p.sis_tabs.split("/");
+		cargoOpcionesDeMenu();
     }
+}
+function cargoOpcionesDeMenu(){
+	// sis_tabs son los tabs que el country tiene disponibles Noticias - visitas- emergencias - reservas
+	if(window.sis_tabs[0]==0){ document.getElementById("botNoticiasFoot").style.display="none";}
+	if(window.sis_tabs[1]==0){ document.getElementById("botInvitadosFoot").style.display="none";}
+	if(window.sis_tabs[2]==0){ document.getElementById("botEmergenciasFoot").style.display="none";}
+	if(window.sis_tabs[3]==0){ document.getElementById("botReservasFoot").style.display="none";}
 }
 // Enlisto todos los invitados y los adjunto al panel
 function selectInvitados(tx) {
@@ -80,7 +90,7 @@ function querySuccess(tx, rs) {
         var element = parseINVITADOS(p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod, i);
 		//verificarEstadoInvitado(i+1,p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod); No lo hacemos recien lo carga por si no tiene internet
         //alert(element);
-        $(".historial").append(element);
+        $(".historial").prepend(element);
     }
 	setTimeout(function(){actualizar();},3000);
 }
