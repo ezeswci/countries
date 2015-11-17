@@ -15,6 +15,8 @@ function verificarPanico(){
 			activarPanicoRevision();
 		}}
 }*/
+
+
 function apretoPanico(elemento){
 	if(elemento.src.indexOf("boton_empezar")!=-1){
 		elemento.src="img/boton_parar.jpg";
@@ -66,6 +68,7 @@ function cerrarAviso(){
 }
 function enviarMensajeServidor(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
+	crearAlerta();
 	var lot_usu=window.lotUsuId;
 	var usu_udid=device.uuid;
 	var ipSend=window.sis_ip;
@@ -85,6 +88,7 @@ function enviarMensajeServidor(){
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			value=parseInt(xmlhttp.responseText);
+			borrarAlerta();
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
 	 	 }
@@ -93,11 +97,12 @@ function enviarMensajeServidor(){
 		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
 		}
 		else{
-			setTimeout(function(){enviarMensajeServidor();},5000); 
+			setTimeout(function(){enviarMensajeServidor();},3000); 
 		}
 }
 function avisarError(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
+	borrarAlerta();
 	var ipSend=window.sis_ip;
 	cerrarAviso();
 	var lot_usu=window.lotUsuId;

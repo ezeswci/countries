@@ -1,5 +1,6 @@
 // JavaScript Document
 //setTimeout(actualizarNovedades, 3000);
+window.actulizadaNovedades=0;
 function actualizarNovedades(){
 	var ipSend=window.sis_ip;
 	//alert("Busco actualizar noticias");// Todo ya cargado busco las actualizaciones
@@ -96,3 +97,10 @@ function errorupd(){
 	 alert('acualizo mal');
 	 
 }
+function deUrlAbase64(){
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+src = 'http://www.gravatar.com/avatar/0e39d18b89822d1d9871e0d1bc839d06?s=128&d=identicon&r=PG',
+img = document.createElement('img');
+ctx.drawImage(img, 10, 10);
+return c.toDataURL();}

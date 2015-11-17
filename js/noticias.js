@@ -4,7 +4,7 @@ window.ultActulizacion=0;
 $(document).ready(onDeviceReady);
 
 function onDeviceReady() {
-    var dbSize = 200000;
+    var dbSize = 20000000;// 20mb
     var dbName = "CCA";
     var dbVersion = "1.0";
     var dbDisplayName = "CCAppDatabase";
@@ -13,6 +13,7 @@ function onDeviceReady() {
     //
     window.db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
    	window.db.transaction(initDB, errorCB, successCB);
+	notBack();
 
 }
 
@@ -88,7 +89,9 @@ function mostrarNoticias(){
    }
    }
    document.getElementById("contiene_noticias").innerHTML=texto;
-   setTimeout(function(){actualizarNovedades();},3000);
+   if(window.actulizadaNovedades==0){
+   window.actulizadaNovedades=1;
+   setTimeout(function(){actualizarNovedades();},3000);}
    }
 	else{ setTimeout(function(){mostrarNoticias();},50);}
 }

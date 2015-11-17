@@ -9,7 +9,7 @@ function onDeviceReady() {
     //Onclick CB
     //
     initClickCB();
-    var dbSize = 200000;
+    var dbSize = 20000000;// 20mb
     var dbName = "CCA";
     var dbVersion = "1.0";
     var dbDisplayName = "CCAppDatabase";

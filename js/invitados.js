@@ -15,7 +15,7 @@ window.delet_id;
 // PhoneGap is ready
 //
 function onDeviceReady() {
-    var dbSize = 200000;
+    var dbSize = 20000000;// 20mb
     var dbName = "CCA";
     var dbVersion = "1.0";
     var dbDisplayName = "CCAppDatabase";
@@ -24,6 +24,7 @@ function onDeviceReady() {
     //
     window.db = window.openDatabase(dbName, dbVersion, dbDisplayName, dbSize);
    	window.db.transaction(initDB, errorCB, successCB);
+	invBack();
 	//window.db.transaction(selectPass, errorCB);
 	//db.transaction(initDB, errorCB, successCBM);
 

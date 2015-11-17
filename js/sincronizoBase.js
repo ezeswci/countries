@@ -7,7 +7,7 @@ window.sis_vers_act="1.0";
 // PhoneGap is ready
 //
 function registrarEnBase() {
-    var dbSize = 200000;
+    var dbSize = 20000000;// 20mb
     var dbName = "CCA";
     var dbVersion = "1.0";
     var dbDisplayName = "CCAppDatabase";
