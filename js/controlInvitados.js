@@ -46,7 +46,7 @@ function actualizar(){
 		verificarEstadoInvitado(i,p.inv_id, p.inv_nombre, p.inv_estado, p.inv_mod);
 		//alert("actualizo"+p.inv_id + "id por otro lado");
     }
-	setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
+	window.actualiza=setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
 }
 function errorCBAA() {
     alert("error CBAA");

@@ -9,7 +9,7 @@ function actualizar(){
 		verificarEstadoReserva(i,p.re_id , p.re_deporte, p.re_hora, p.re_fecha, p.re_can_nom, p.re_can_id, p.re_estad);
 		//alert("actualizo"+p.re_id +p.re_deporte +p.re_hora +p.re_fecha +p.re_can_nom +p.re_can_id+p.re_estad + "id por otro lado");
     }
-	setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
+	window.actualiza=setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
 }
 function errorCBAA() {
     alert("error CBAA");

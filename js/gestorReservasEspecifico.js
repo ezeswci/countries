@@ -65,7 +65,8 @@ function quitarReserva(nombreCancha, nombreDeporte, canchaId, hora, fecha){
     	}
 	}
 }
-function gestionarReserva(){
+function gestionarReserva(){ // Gestiona la reserva y a partir de eso deberia actualizar
+	clearTimeout(window.actualiza);
 	element="";
 	cero=0;
 	var p=new Array(); 
@@ -85,6 +86,7 @@ function gestionarReserva(){
    while(window.arregloDeReservas.length > 0) {
     window.arregloDeReservas.pop();
 	}
+	actualizar();
 	cerrarTodo();
 }
 //

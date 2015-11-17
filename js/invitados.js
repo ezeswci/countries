@@ -93,7 +93,7 @@ function querySuccess(tx, rs) {
         //alert(element);
         $(".historial").prepend(element);
     }
-	setTimeout(function(){actualizar();},3000);
+	window.actualiza=setTimeout(function(){actualizar();},3000);
 }
 function parseINVITADOS(inv_id, inv_nombre, inv_estado, modificado, parimpar){
 	diafecha=utcformat(modificado);//(new Date(modificado)).toUTCString();
@@ -156,6 +156,8 @@ function insertContactoManual(tx){
 	 //alert("claves"+verdadera+"-fal-"+falsa);CONTACT (con_id unique, con_tipo, con_nombre, con_destino)
 	 var query = 'INSERT INTO INVITADOS (inv_nombre, inv_estado, inv_lu_id, inv_mod) VALUES (?,?,?,?)';
      tx.executeSql(query, [nombre, estado, quien, cuando]);
+	 clearTimeout(window.actualiza);
+	 actualizar();
 	 
 }
 function borrarContacto(modificado,i,element){
