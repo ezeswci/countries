@@ -23,6 +23,11 @@ document.addEventListener('deviceready', function () {
 	cordova.plugins.backgroundMode.configure({
     silent: true
 });
+document.addEventListener("deviceready", onDeviceReadyUdid, false);
+function onDeviceReadyUdid() {
+    window.udid=device.uuid;
+}
+
 }, false);
 function inicioMasBack(){
 	var dbSize = 20000000;// 20mb
@@ -403,7 +408,7 @@ function enviarMensajeServidorBack(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
 	crearAlertaBack();
 	var lot_usu=window.lotUsuId;
-	var usu_udid=device.uuid;
+	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
 	if(checkConnection()){
 		//var lot=window.lotUsuId;

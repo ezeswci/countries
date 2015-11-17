@@ -2,6 +2,10 @@
 //Primer pregunta sis_ip, sis_tabs
 //Fijo sis_vers_act, sis_ult_ver
 //Segunda pregunta
+document.addEventListener("deviceready", onDeviceReadyUdid, false);
+function onDeviceReadyUdid() {
+    window.udid=device.uuid;
+}
 function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy a apuntar
 	var lectura=document.getElementById("codigo").value;
 	var codigos=lectura.split("-");
@@ -44,7 +48,7 @@ function registrarClubHouse2(){// Envio el codigo a esa direccion para
 	var lectura=document.getElementById("codigo").value;
 	var codigos=lectura.split("-");
 	var codigo=codigos[1];
-	var udid=device.uuid;//"123456";
+	var udid=window.udid;//"123456";
 	//var udid="123456";
 	var regId=window.regId;
 	//alert(regId);

@@ -70,7 +70,7 @@ function enviarMensajeServidor(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
 	crearAlerta();
 	var lot_usu=window.lotUsuId;
-	var usu_udid=device.uuid;
+	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
 	if(checkConnection()){
 		//var lot=window.lotUsuId;
@@ -106,7 +106,7 @@ function avisarError(){
 	var ipSend=window.sis_ip;
 	cerrarAviso();
 	var lot_usu=window.lotUsuId;
-	var usu_udid=device.uuid;
+	var usu_udid=window.udid;
 	if(checkConnection()){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
