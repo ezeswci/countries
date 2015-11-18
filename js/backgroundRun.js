@@ -40,6 +40,7 @@ function inicioMasBack(){
 	masBack();
 }
 function masBack(){
+	alert("Entro al Back");
 	window.db.transaction(selectLotUsuIdBack, errorBack);
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
@@ -48,12 +49,14 @@ function masBack(){
 	setTimeout(function(){masBack();},60000);
 }
 function reservasBack(){
+	alert("Entro al Back");
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();
 	setTimeout(function(){reservasBack();},60000);
 }
 function notBack(){	
+	alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
@@ -61,12 +64,14 @@ function notBack(){
 	setTimeout(function(){notBack();},60000);
 }
 function invBack(){
+	alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();
 	setTimeout(function(){invBack();},60000);
 }
 function emergBack(){
+	alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	comprobarEquipo();
@@ -448,6 +453,7 @@ function comprobarEquipo(){
 	var lot_usu=window.lotUsuId;
 	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
+	alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
 	if(checkConnection()){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
