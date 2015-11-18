@@ -40,7 +40,7 @@ function inicioMasBack(){
 	masBack();
 }
 function masBack(){
-	alert("Entro al Back");
+	//alert("Entro al Back");
 	setTimeout(function(){window.db.transaction(selectLotUsuIdBack, errorBack);
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
@@ -49,14 +49,14 @@ function masBack(){
 	setTimeout(function(){masBack();},60000);
 }
 function reservasBack(){
-	alert("Entro al Back");
+	//alert("Entro al Back");
 	setTimeout(function(){window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();},10000);
 	setTimeout(function(){reservasBack();},60000);
 }
 function notBack(){	
-	alert("Entro al Back");
+	//alert("Entro al Back");
    	setTimeout(function(){window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
@@ -64,14 +64,14 @@ function notBack(){
 	setTimeout(function(){notBack();},60000);
 }
 function invBack(){
-	alert("Entro al Back");
+	//alert("Entro al Back");
    	setTimeout(function(){window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();},10000);
 	setTimeout(function(){invBack();},60000);
 }
 function emergBack(){
-	alert("Entro al Back");
+	//alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	setTimeout(function(){comprobarEquipo();},10000);
@@ -453,7 +453,7 @@ function comprobarEquipo(){
 	var lot_usu=window.lotUsuId;
 	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
-	alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
+	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
 	if(checkConnection()&& lot_usu != undefined && usu_udid != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
@@ -470,9 +470,9 @@ function comprobarEquipo(){
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			value=parseInt(xmlhttp.responseText);
-			alert(value);
+			//alert(value);
 			if(value==0){
-				echarCelular();
+				echarCelular(lot_usu);
 			}
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
@@ -485,9 +485,10 @@ function comprobarEquipo(){
 			setTimeout(function(){comprobarEquipo();},3000); 
 		}
 }
-function echarCelular(){
+function echarCelular(lot_usu){
+	val=0;
 	window.db.transaction(function (tx) {
-		tx.executeSql('UPDATE LOT_USU SET lu_usu_id=? WHERE lu_usu_id != ?', [0,0], successBack, errorBack);
+		tx.executeSql('UPDATE LOT_USU SET lu_usu_id=? WHERE lu_usu_id = ?', [val,lot_usu], successBack, errorBack);
 	}
 	);
 	window.location = "echado.html";
