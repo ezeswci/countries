@@ -45,14 +45,14 @@ function masBack(){
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();
+	setTimeout(function(){comprobarEquipo();},10000);
 	setTimeout(function(){masBack();},60000);
 }
 function reservasBack(){
 	alert("Entro al Back");
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();
+	setTimeout(function(){comprobarEquipo();},10000);
 	setTimeout(function(){reservasBack();},60000);
 }
 function notBack(){	
@@ -60,21 +60,21 @@ function notBack(){
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();
+	setTimeout(function(){comprobarEquipo();},10000);
 	setTimeout(function(){notBack();},60000);
 }
 function invBack(){
 	alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();
+	setTimeout(function(){comprobarEquipo();},10000);
 	setTimeout(function(){invBack();},60000);
 }
 function emergBack(){
 	alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
-	comprobarEquipo();
+	setTimeout(function(){comprobarEquipo();},10000);
 	setTimeout(function(){emergBack();},60000);
 }
 function errorBack(){
