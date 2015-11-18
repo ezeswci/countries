@@ -454,7 +454,7 @@ function comprobarEquipo(){
 	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
 	alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
-	if(checkConnection()){
+	if(checkConnection()&& lot_usu != undefined && usu_udid != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
 		if (window.XMLHttpRequest)
