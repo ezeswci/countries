@@ -23,12 +23,11 @@ document.addEventListener('deviceready', function () {
 	cordova.plugins.backgroundMode.configure({
     silent: true
 });
+}, false);
 document.addEventListener("deviceready", onDeviceReadyUdid, false);
 function onDeviceReadyUdid() {
     window.udid=device.uuid;
 }
-
-}, false);
 function inicioMasBack(){
 	var dbSize = 20000000;// 20mb
     var dbName = "CCA";
@@ -41,6 +40,7 @@ function inicioMasBack(){
 	masBack();
 }
 function masBack(){
+	comprobarEquipo();
 	window.db.transaction(selectLotUsuIdBack, errorBack);
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
@@ -48,22 +48,26 @@ function masBack(){
 	setTimeout(function(){masBack();},60000);
 }
 function reservasBack(){
+	comprobarEquipo();
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	setTimeout(function(){reservasBack();},60000);
 }
 function notBack(){
+	comprobarEquipo();
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	setTimeout(function(){notBack();},60000);
 }
 function invBack(){
+	comprobarEquipo();
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	setTimeout(function(){invBack();},60000);
 }
 function emergBack(){
+	comprobarEquipo();
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	setTimeout(function(){emergBack();},60000);
@@ -439,3 +443,45 @@ function enviarMensajeServidorBack(){
 		}
 }
 // -------------------------- Termino con el sector de Alarma -------------------------------------
+function comprobarEquipo(){
+	//alert ("entre a actualizar un invitado:"+inv_id);
+	var lot_usu=window.lotUsuId;
+	var usu_udid=window.udid;
+	var ipSend=window.sis_ip;
+	if(checkConnection()){
+		//var lot=window.lotUsuId;
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  		xmlhttp=new XMLHttpRequest();
+	  		}
+		else
+	  	{// code for IE6, IE5
+	 	 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	 	 }
+		xmlhttp.onreadystatechange=function()
+	  	{
+	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+			value=parseInt(xmlhttp.responseText);
+			if(value==0){
+				echarCelular();
+			}
+			//alert("devuelto:"+value+" Tengo:"+inv_estado);
+	    }
+	 	 }
+		xmlhttp.open("POST",ipSend+"comprobar_equipo.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("lot_usu="+lot_usu+"&usu_udid="+usu_udid);
+		}
+		else{
+			setTimeout(function(){comprobarEquipo();},3000); 
+		}
+}
+function echarCelular(){
+	window.db.transaction(function (tx) {
+		tx.executeSql('UPDATE LOT_USU SET lu_usu_id=? WHERE lu_usu_id != ?', [0,0], successBack, errorBack);
+	}
+	);
+	window.location = "echado.html";
+}
