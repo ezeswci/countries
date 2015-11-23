@@ -27,7 +27,7 @@ function initDB(tx) {
     //tx.executeSql('CREATE TABLE IF NOT EXISTS USUARIOS (usu_id, usu_udid, usu_nombre, usu_apellido, usu_celular, usu_estado)');
 	// Esto no estaba antes
 	//tx.executeSql('CREATE TABLE IF NOT EXISTS LOTES (lot_id, lot_nombre , lot_coun_id , lot_flia)');
-	tx.executeSql('CREATE TABLE IF NOT EXISTS LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo, sis_ip, sis_tabs, sis_vers_act, sis_ult_ver)');// tipo: 1- alpha 0-normal
+	tx.executeSql('CREATE TABLE IF NOT EXISTS LOT_USU (lu_id, lu_lot_id , lu_usu_id , lu_tipo, sis_ip, sis_tabs, sis_vers_act, sis_ult_ver, sis_ult_avi)');// tipo: 1- alpha 0-normal
 	//tx.executeSql('CREATE TABLE IF NOT EXISTS COUNTRY (co_id, co_nombre)');
 }
 

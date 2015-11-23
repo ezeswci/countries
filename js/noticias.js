@@ -49,6 +49,7 @@ function querySuccessUsuId(tx, rs) {
 		window.lotUsuId=p.lu_id;
 		window.sis_ip=p.sis_ip;
 		window.sis_tabs=p.sis_tabs.split("/");
+		window.sis_ult_avi=p.sis_ult_avi;
 		cargoOpcionesDeMenu();
     }
 }

@@ -113,6 +113,7 @@ function querySuccessUsuIdBack(tx, rs) {
         var p = rs.rows.item(i);
 		window.lotUsuId=p.lu_id;
 		window.sis_ip=p.sis_ip;
+		window.sis_ult_avi=p.sis_ult_avi;
     }
 }
 function selectReservasBack(tx) {
@@ -448,6 +449,7 @@ function enviarMensajeServidorBack(){
 		}
 }
 // -------------------------- Termino con el sector de Alarma -------------------------------------
+// -------------------------- Comienza con comprobaciones Regulares -------------------------------------
 function comprobarEquipo(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
 	var lot_usu=window.lotUsuId;
@@ -473,6 +475,8 @@ function comprobarEquipo(){
 			//alert(value);
 			if(value==0){
 				echarCelular(lot_usu);
+			}else{
+				comprobarSiAvisos();
 			}
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 	    }
@@ -492,4 +496,77 @@ function echarCelular(lot_usu){
 	}
 	);
 	window.location = "echado.html";
+}
+function comprobarEquipo(){
+	//alert ("entre a actualizar un invitado:"+inv_id);
+	var lot_usu=window.lotUsuId;
+	var ipSend=window.sis_ip;
+	var sis_ult_avi=window.sis_ult_avi;
+	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
+	if(checkConnection()&& lot_usu != undefined && usu_udid != undefined && ipSend != undefined){
+		//var lot=window.lotUsuId;
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  		xmlhttp=new XMLHttpRequest();
+	  		}
+		else
+	  	{// code for IE6, IE5
+	 	 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	 	 }
+		xmlhttp.onreadystatechange=function()
+	  	{
+	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+			var respuesta = xmlhttp.responseText;
+			if(parseInt(respuesta)!=0){
+			var obj = JSON.parse(respuesta);
+			for (var i = 0; i < obj.length; i++) {
+				generarAlerta(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);//
+				actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
+    		}
+			actualizarUltimoAviso(obj[i-1]['ci_fecha'],lot_usu);
+			}else{
+				//alert("Sin actualizaciones");
+			}
+			//window.TengoQueActualizar=1;
+			return;
+	    }
+	 	 }
+		xmlhttp.open("POST",ipSend+"comprobar_mensajes.php",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("lot_usu="+lot_usu+"&sis_ult_avi="+sis_ult_avi);
+		}
+		else{
+			setTimeout(function(){comprobarEquipo();},3000); 
+		}
+}
+function actualizarUltimoAviso(sis_ult_avi,lot_usu){
+	window.db.transaction(function (tx) {
+		tx.executeSql('UPDATE LOT_USU SET sis_ult_avi=? WHERE lu_usu_id = ?', [sis_ult_avi,lot_usu], successBack, errorBack);
+	}
+	);
+}
+function generarAlerta(id,titulo,contenido){
+	//alert(id+titulo+contenido);
+	var div = document.createElement("div");
+	var fondo = document.createElement("div");
+	div.className="cartel";
+	fondo.className="fondo_negro";
+	div.id="cartel"+id;
+	fondo.id="fondo_negro"+id;
+	div.style.visibility="visible";
+	fondo.style.visibility="visible";
+	div.innerHTML='<div class="titulo"><p>'+titulo+'</p></div><div class="content"><p>'+contenido+'</p></div><div class="botones"><div onclick="cerarAlerta(\''+id+'\');" class="boton_unico"><p>CERRAR</p></div></div>';
+	fondo.onclick=function (){cerarAlerta(id);};
+	document.body.appendChild(div);
+	document.body.appendChild(fondo);      
+}
+function cerarAlerta(id){
+	if(document.getElementById("cartel"+id)!=null){
+		document.getElementById("cartel"+id).style.display='none';
+	}
+	if(document.getElementById("fondo_negro"+id)!=null){
+		document.getElementById("fondo_negro"+id).style.display='none';
+	}
 }

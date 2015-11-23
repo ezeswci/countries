@@ -544,7 +544,7 @@ p {
 	margin-left:auto;
 	margin-right:auto;
 }
-#cartel {
+#cartel, .cartel {
 	width:90%;
 	max-height: 90vh;
 	position: fixed;
@@ -557,7 +557,7 @@ p {
 	-webkit-box-shadow: 4px 4px 4px 4px #3B3B3B;
 	box-shadow: 4px 4px 4px 4px #3B3B3B;
 }
-#cartel .scroll{
+#cartel .scroll,{
 	overflow-y: auto;
 	max-height:70vh;
 }
@@ -578,7 +578,7 @@ p {
 	-webkit-box-shadow: 4px 4px 4px 4px #3B3B3B;
 	box-shadow: 4px 4px 4px 4px #3B3B3B;
 }
-#cartel .titulo, #cartel2 .titulo, #cartel3 .titulo, #cartel4 .titulo{
+#cartel .titulo, #cartel2 .titulo, #cartel3 .titulo, #cartel4 .titulo, .cartel .titulo{
 	font-family: 'DINNextRoundedLTPro-Regular';
 	background-color: #8FC74A;
 	color:#FFF;
@@ -588,10 +588,10 @@ p {
 	font-size:14px;
 	height:40px;
 }
-#cartel .titulo p, #cartel2 .titulo p, #cartel3 .titulo p, #cartel4 .titulo p{
+#cartel .titulo p, #cartel2 .titulo p, #cartel3 .titulo p, #cartel4 .titulo p, .cartel .titulo p{
 	padding-top: 13px;
 	}
-#cartel .content, #cartel2 .content, #cartel3 .content, #cartel4 .content{
+#cartel .content, #cartel2 .content, #cartel3 .content, #cartel4 .content, , .cartel .content{
 	font-family: 'DINNextLTPro-Light';
 	width: 80%;
 	margin-left:10%;
@@ -624,7 +624,7 @@ p {
 	box-shadow: 9px 7px 21px -6px rgba(0,0,0,0.75);
 	margin-top:5px;
 }
-#cartel .botones, #cartel2 .botones, #cartel3 .botones, #cartel4 .botones {
+#cartel .botones, #cartel2 .botones, #cartel3 .botones, #cartel4 .botones, .cartel .botones {
 	background-color: #EDEDED;
 	margin-top:10px;
 	padding-top:5px;
@@ -658,7 +658,7 @@ p {
 	float:left;
 	margin-left:30px;
 }
-#cartel .botones .boton_unico, #cartel2 .botones .boton_unico, #cartel3 .botones .boton_unico, #cartel4 .botones .boton_unico {
+#cartel .botones .boton_unico, #cartel2 .botones .boton_unico, #cartel3 .botones .boton_unico, #cartel4 .botones .boton_unico, .cartel .botones .boton_unico{
 	width:45px;
 	height:45px;
 	text-align: center;
@@ -674,7 +674,7 @@ p {
 #cartel .botones .boton_unico.aceptar, #cartel2 .botones .boton_unico.aceptar, #cartel3 .botones .boton_unico.aceptar, #cartel4 .botones .boton_unico.aceptar {
 	background-color:#8BC63E;
 	}
-#cartel .botones .boton_unico p, #cartel2 .botones .boton_unico p, #cartel3 .botones .boton_unico p, #cartel4 .botones .boton_unico p, #cartel .botones .boton.der p, #cartel2 .botones .boton.der p, #cartel3 .botones .boton.der p, #cartel4 .botones .boton.der p, #cartel .botones .boton p, #cartel2 .botones .boton p, #cartel3 .botones .boton p, #cartel4 .botones .boton p {
+#cartel .botones .boton_unico p, #cartel2 .botones .boton_unico p, #cartel3 .botones .boton_unico p, #cartel4 .botones .boton_unico p, #cartel .botones .boton.der p, #cartel2 .botones .boton.der p, #cartel3 .botones .boton.der p, #cartel4 .botones .boton.der p, #cartel .botones .boton p, #cartel2 .botones .boton p, #cartel3 .botones .boton p, #cartel4 .botones .boton p, .cartel .botones .boton_unico p {
 	padding-top: 18px;
 	}
 #cartel #x, #cartel2 #x, #cartel3 #x, #cartel4 #x {
@@ -760,7 +760,7 @@ p {
 		margin-top:12px;
 		margin-bottom:21px;
 	}
-#fondo_negro, #fondo_negro2 {
+#fondo_negro, #fondo_negro2, .fondo_negro  {
 	background-color: #000;
 	height: 100%;
 	width: 100%;
