@@ -498,10 +498,11 @@ function echarCelular(lot_usu){
 	window.location = "echado.html";
 } 
 function comprobarEquipo(){
-	//alert ("entre a comprobar equipo");
+	
 	var lot_usu=window.lotUsuId;
 	var ipSend=window.sis_ip;
 	var sis_ult_avi=window.sis_ult_avi;
+	alert ("entre a comprobar alertas"+sis_ult_avi);
 	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
 	if(checkConnection()&& lot_usu != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
@@ -526,6 +527,7 @@ function comprobarEquipo(){
 				generarAlerta(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);//
 				//actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
     		}
+			alert("fecha"+obj[i-1]['ci_fecha'])
 			actualizarUltimoAviso(obj[i-1]['ci_fecha'],lot_usu);
 			}else{
 				//alert("Sin actualizaciones");
@@ -544,7 +546,7 @@ function comprobarEquipo(){
 }
 function actualizarUltimoAviso(sis_ult_avi,lot_usu){
 	window.db.transaction(function (tx) {
-		tx.executeSql('UPDATE LOT_USU SET sis_ult_avi=? WHERE lu_usu_id = ?', [sis_ult_avi,lot_usu], successBack, errorBack);
+		tx.executeSql('UPDATE LOT_USU SET sis_ult_avi= ? WHERE lu_usu_id = ?', [sis_ult_avi,lot_usu], successBack, errorBack);
 	}
 	);
 }
