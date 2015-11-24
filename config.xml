@@ -56,6 +56,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.media" />
 	<gap:plugin name="cordova-plugin-network-information" version="1.0.1" />
+	<plugin name="org.apache.cordova.dialogs" spec="0.3.0" source="pgb" />
     <!--<gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" /> -->

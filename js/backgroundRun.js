@@ -502,7 +502,7 @@ function comprobarEquipo(){
 	var lot_usu=window.lotUsuId;
 	var ipSend=window.sis_ip;
 	var sis_ult_avi=window.sis_ult_avi;
-	alert ("entre a comprobar alertas"+sis_ult_avi);
+	//alert ("entre a comprobar alertas"+sis_ult_avi);
 	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
 	if(checkConnection()&& lot_usu != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
@@ -527,7 +527,7 @@ function comprobarEquipo(){
 				generarAlerta(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);//
 				//actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
     		}
-			alert("fecha"+obj[i-1]['ci_fecha'])
+			//alert("fecha"+obj[i-1]['ci_fecha'])
 			actualizarUltimoAviso(obj[i-1]['ci_fecha'],lot_usu);
 			}else{
 				//alert("Sin actualizaciones");
