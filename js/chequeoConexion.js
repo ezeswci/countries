@@ -11,7 +11,7 @@ else
     // has internet, continue work accessing internet
 	return true;
 }
-	/*return true;// Prueba interna */
+	/*return true;// Prueba interna*/ 
     //alert('Connection type: ' + states[networkState]);
 }
 

@@ -496,14 +496,14 @@ function echarCelular(lot_usu){
 	}
 	);
 	window.location = "echado.html";
-}
+} 
 function comprobarEquipo(){
-	//alert ("entre a actualizar un invitado:"+inv_id);
+	//alert ("entre a comprobar equipo");
 	var lot_usu=window.lotUsuId;
 	var ipSend=window.sis_ip;
 	var sis_ult_avi=window.sis_ult_avi;
 	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
-	if(checkConnection()&& lot_usu != undefined && usu_udid != undefined && ipSend != undefined){
+	if(checkConnection()&& lot_usu != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
 		if (window.XMLHttpRequest)
@@ -519,11 +519,12 @@ function comprobarEquipo(){
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			var respuesta = xmlhttp.responseText;
+			//alert(respuesta);
 			if(parseInt(respuesta)!=0){
 			var obj = JSON.parse(respuesta);
 			for (var i = 0; i < obj.length; i++) {
 				generarAlerta(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);//
-				actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
+				//actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
     		}
 			actualizarUltimoAviso(obj[i-1]['ci_fecha'],lot_usu);
 			}else{
@@ -553,20 +554,20 @@ function generarAlerta(id,titulo,contenido){
 	var fondo = document.createElement("div");
 	div.className="cartel";
 	fondo.className="fondo_negro";
-	div.id="cartel"+id;
-	fondo.id="fondo_negro"+id;
+	div.id="acartel"+id;
+	fondo.id="afondo_negro"+id;
 	div.style.visibility="visible";
 	fondo.style.visibility="visible";
-	div.innerHTML='<div class="titulo"><p>'+titulo+'</p></div><div class="content"><p>'+contenido+'</p></div><div class="botones"><div onclick="cerarAlerta(\''+id+'\');" class="boton_unico"><p>CERRAR</p></div></div>';
+	div.innerHTML='<div class="titulo"><p>'+titulo+'</p></div><div class="content"><p>'+contenido+'</p></div><div class="botones"><div onclick="cerraAlerta(\''+id+'\');" class="boton_unico"><p>CERRAR</p></div></div>';
 	fondo.onclick=function (){cerarAlerta(id);};
 	document.body.appendChild(div);
 	document.body.appendChild(fondo);      
 }
-function cerarAlerta(id){
-	if(document.getElementById("cartel"+id)!=null){
-		document.getElementById("cartel"+id).style.display='none';
+function cerraAlerta(id){
+	if(document.getElementById("acartel"+id)!=null){
+		document.getElementById("acartel"+id).style.display='none';
 	}
-	if(document.getElementById("fondo_negro"+id)!=null){
-		document.getElementById("fondo_negro"+id).style.display='none';
+	if(document.getElementById("afondo_negro"+id)!=null){
+		document.getElementById("afondo_negro"+id).style.display='none';
 	}
 }
