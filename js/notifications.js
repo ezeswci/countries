@@ -1,9 +1,5 @@
 // JavaScript Document
-document.addEventListener("deviceready", onDeviceReadyM, false);
-function onDeviceReadyM() {
-	setTimeout(function(){mensajes();},5000);
-    console.log(navigator.notification);
-}
+	setTimeout(function(){mensajes();},10000);
 function mensajes(){
 	alert("Entra mensajes");
 	setTimeout(function(){alerta();},10000);
