@@ -545,6 +545,7 @@ function comprobarEquipo(){
 		}
 }
 function actualizarUltimoAviso(sis_ult_avi,lot_usu){
+	window.sis_ult_avi=sis_ult_avi;
 	window.db.transaction(function (tx) {
 		tx.executeSql('UPDATE LOT_USU SET sis_ult_avi= ? WHERE lu_usu_id = ?', [sis_ult_avi,lot_usu], successBack, errorBack);
 	}
