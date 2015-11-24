@@ -88,7 +88,8 @@ function querySuccess(tx, rs) {
 		//window.location = "noticias.html";
 	}else{
 		
-		 window.location = "sincronizar.html";
+		 //window.location = "sincronizar.html";
+		 window.location = "notification.html";
 		// -- cuando tenga q sincronizar
 		//window.location = "noticias.html";
 	}
