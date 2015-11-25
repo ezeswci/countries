@@ -566,6 +566,15 @@ function generarAlerta(id,titulo,contenido){
 	document.body.appendChild(div);
 	document.body.appendChild(fondo);      
 }
+function avisoPorAtras(id,titulo,contenido){
+	window.plugin.notification.local.add({
+    id:         id,
+	title:      titulo,
+    message:    contenido,
+	autoCancel: true,
+	icon: 'file://img/logo57.png'
+	});
+	}
 function cerraAlerta(id){
 	if(document.getElementById("acartel"+id)!=null){
 		document.getElementById("acartel"+id).style.display='none';
