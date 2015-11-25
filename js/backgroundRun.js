@@ -578,8 +578,23 @@ function avisoPorAtras(id,titulo,contenido){
 	autoCancel: true
 	});//}
 	if(cordova.plugins.backgroundMode.isActive()){// Si esta Corriendo por atras, sino que no largue el aviso
-	alert("Notf Prendido")}{// Si esta Corriendo por atras, sino que no largue el aviso
-	alert("Notf Apagado")}
+	window.plugin.notification.local.add({
+    id:         id+"A",
+	title:      titulo+"Atras",
+    message:    contenido,
+	autoCancel: true
+	});
+	
+	
+	}{// Si esta Corriendo por atras, sino que no largue el aviso
+	window.plugin.notification.local.add({
+    id:         id+"No",
+	title:      titulo+"No",
+    message:    contenido,
+	autoCancel: true
+	});
+	
+	}
 	}
 function cerraAlerta(id){
 	if(document.getElementById("acartel"+id)!=null){
