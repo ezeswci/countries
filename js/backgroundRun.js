@@ -21,6 +21,8 @@ document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
 	if(!cordova.plugins.backgroundMode.isEnabled()){cordova.plugins.backgroundMode.enable();}
 	cordova.plugins.backgroundMode.configure({
+	title:  "Club house",
+    text:   " ",
     silent: true
 });
 }, false);
