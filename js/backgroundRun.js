@@ -555,7 +555,7 @@ function actualizarUltimoAviso(sis_ult_avi,lot_usu){
 	);
 }
 function generarAlerta(id,titulo,contenido){
-	alert(id+titulo+contenido);
+	//alert(id+titulo+contenido);
 	var div = document.createElement("div");
 	var fondo = document.createElement("div");
 	div.className="cartel";
