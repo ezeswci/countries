@@ -41,7 +41,6 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.media" />
 	<gap:plugin name="cordova-plugin-network-information" version="1.0.1" />
-	<gap:plugin name="de.appplant.cordova.plugin.local-notification" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
