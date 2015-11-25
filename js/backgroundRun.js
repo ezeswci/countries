@@ -553,7 +553,7 @@ function actualizarUltimoAviso(sis_ult_avi,lot_usu){
 	);
 }
 function generarAlerta(id,titulo,contenido){
-	//alert(id+titulo+contenido);
+	alert(id+titulo+contenido);
 	var div = document.createElement("div");
 	var fondo = document.createElement("div");
 	div.className="cartel";
@@ -569,13 +569,20 @@ function generarAlerta(id,titulo,contenido){
 }
 function avisoPorAtras(id,titulo,contenido){
 	if(cordova.plugins.backgroundMode.isActive()){// Si esta Corriendo por atras, sino que no largue el aviso
+	alert("Notf Prendido")}{// Si esta Corriendo por atras, sino que no largue el aviso
+	alert("Notf Apagado")}
 	window.plugin.notification.local.add({
     id:         id,
 	title:      titulo,
     message:    contenido,
-	autoCancel: true,
-	icon: 'file://img/logo57.png'
-	});}
+	autoCancel: true
+	});//}
+	window.plugin.notification.local.add({
+    id:         "123",
+	title:      "titulo",
+    message:    "Contenido",
+	autoCancel: true
+	});//}
 	}
 function cerraAlerta(id){
 	if(document.getElementById("acartel"+id)!=null){
