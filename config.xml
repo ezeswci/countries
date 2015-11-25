@@ -54,7 +54,7 @@
 	<gap:plugin name="org.transistorsoft.cordova.background-geolocation" version="0.3.5" />
 	<!--gap:plugin name="com.joandilee.imeiplugin" version="0.1" /-->
 	<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" />
-	<plugin name="trunk.plugin.local-notification" spec="0.8.2" source="pgb" />
+	<plugin name="cn.push.cordova.plugin.local-notification" spec="0.7.8" source="pgb" /><!-- Solo Android /-->
 	
 	
 	
