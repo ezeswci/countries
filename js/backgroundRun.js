@@ -525,6 +525,7 @@ function comprobarEquipo(){
 			var obj = JSON.parse(respuesta);
 			for (var i = 0; i < obj.length; i++) {
 				generarAlerta(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);//
+				avisoPorAtras(obj[i]['ci_id'],obj[i]['ci_titulo'],obj[i]['ci_content']);
 				//actualizarUltimoAviso(obj[i]['ci_fecha'],lot_usu)
     		}
 			//alert("fecha"+obj[i-1]['ci_fecha'])
@@ -567,13 +568,14 @@ function generarAlerta(id,titulo,contenido){
 	document.body.appendChild(fondo);      
 }
 function avisoPorAtras(id,titulo,contenido){
+	if(cordova.plugins.backgroundMode.isActive()){// Si esta Corriendo por atras, sino que no largue el aviso
 	window.plugin.notification.local.add({
     id:         id,
 	title:      titulo,
     message:    contenido,
 	autoCancel: true,
 	icon: 'file://img/logo57.png'
-	});
+	});}
 	}
 function cerraAlerta(id){
 	if(document.getElementById("acartel"+id)!=null){
