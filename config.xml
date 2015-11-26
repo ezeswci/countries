@@ -35,7 +35,7 @@
 
 
     <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="cordova-plugin-device" version="1.0.1" />
+    <gap:plugin name="org.apache.cordova.device"/>
     <gap:plugin name="org.apache.cordova.device-motion" />
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
@@ -52,6 +52,8 @@
 	<!-- GeoLocation platform. -->	
 	<!--gap:plugin name="org.transistorsoft.cordova.background-geolocation" version="0.3.5" /-->
 	<!--gap:plugin name="com.joandilee.imeiplugin" version="0.1" /-->
+	<gap:plugin name="com.joandilee.imeiplugin" version="0.1" />
+	<gap:plugin name="com.badrit.backbutton" version="0.1.0" />
 	<plugin name="it.witek.cordova.plugin.background-mode" spec="0.6.3" source="pgb" /><!-- Solo Android /-->
 	<plugin name="com.footprint.cordova.plugin.local-notification" spec="0.8.0" source="pgb" />
 	<plugin name="com.danielcwilson.plugins.googleanalytics" spec="0.6.1" source="pgb" />
