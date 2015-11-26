@@ -172,6 +172,8 @@ var app = {
             desiredAccuracy: 0,
             stationaryRadius: 30,
             distanceFilter: 30,
+			notificationTitle: 'Track', // <-- android only, customize the title of the notification
+        	notificationText: 'On',
             activityType: 'AutomotiveNavigation',
             debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
             stopOnTerminate: true // <-- enable this to clear background location settings when the app terminates
@@ -355,6 +357,7 @@ function empezarATrasmitirGps(){
 //auth_token:  device.uuid
 }
 function dejarDeTrasmitirGps(){
+	bgGeo.stop();
 	app.stopApp();
 	window.plugins.backgroundGeoLocation.stop();
 }

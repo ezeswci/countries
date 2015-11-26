@@ -21,7 +21,7 @@ document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
 	if(!cordova.plugins.backgroundMode.isEnabled()){cordova.plugins.backgroundMode.enable();}
 	cordova.plugins.backgroundMode.configure({
-	title:  "Club house",
+	title:  "Club House",
     text:   " ",
     silent: true
 });
@@ -48,14 +48,14 @@ function masBack(){
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();},10000);
-	setTimeout(function(){masBack();},60000);
+	setTimeout(function(){masBack();},20000);
 }
 function reservasBack(){
 	//alert("Entro al Back");
 	setTimeout(function(){window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();},10000);
-	setTimeout(function(){reservasBack();},60000);
+	setTimeout(function(){reservasBack();},20000);
 }
 function notBack(){	
 	//alert("Entro al Back");
@@ -70,14 +70,14 @@ function invBack(){
    	setTimeout(function(){window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
 	comprobarEquipo();},10000);
-	setTimeout(function(){invBack();},60000);
+	setTimeout(function(){invBack();},20000);
 }
 function emergBack(){
 	//alert("Entro al Back");
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	setTimeout(function(){comprobarEquipo();},10000);
-	setTimeout(function(){emergBack();},60000);
+	setTimeout(function(){emergBack();},20000);
 }
 function errorBack(){
 	//window.location='reservas.html';
@@ -453,11 +453,10 @@ function enviarMensajeServidorBack(){
 // -------------------------- Termino con el sector de Alarma -------------------------------------
 // -------------------------- Comienza con comprobaciones Regulares -------------------------------------
 function comprobarEquipo(){
-	//alert ("entre a actualizar un invitado:"+inv_id);
 	var lot_usu=window.lotUsuId;
 	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
-	//alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
+	alert("Entre comprobar equipo, lot usu"+lot_usu+" udid"+usu_udid+" ipsend"+ipSend);
 	if(checkConnection()&& lot_usu != undefined && usu_udid != undefined && ipSend != undefined){
 		//var lot=window.lotUsuId;
 		var xmlhttp;
@@ -474,7 +473,7 @@ function comprobarEquipo(){
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			value=parseInt(xmlhttp.responseText);
-			//alert(value);
+			alert(xmlhttp.responseText);
 			if(value==0){
 				echarCelular(lot_usu);
 			}else{
