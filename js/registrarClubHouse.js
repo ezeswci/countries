@@ -16,7 +16,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	var codigos=lectura.split("-");
 	var codigo=codigos[0];
 	var regId=window.regId;
-	//alert(regId);
+	alert(regId+"-"+codigo);
 	mostrarSincronizando();
 	var xmlhttp;
 		if (window.XMLHttpRequest)
@@ -56,7 +56,7 @@ function registrarClubHouse2(){// Envio el codigo a esa direccion para
 	var udid=window.udid;//"123456";
 	//var udid="123456";
 	var regId=window.regId;
-	//alert(regId);
+	alert(regId+"-"+codigo+"-"+udid);
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
