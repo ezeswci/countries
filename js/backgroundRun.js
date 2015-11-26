@@ -493,7 +493,7 @@ function comprobarEquipoBack(){
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			value=parseInt(xmlhttp.responseText);
-			alert(xmlhttp.responseText);
+			//alert(xmlhttp.responseText);
 			if(value==0){
 				echarCelular(lot_usu);
 			}else{

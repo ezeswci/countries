@@ -17,7 +17,7 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
         "ecb":"onNotification"
     });
 }else{
-	alert("no entro");
+	//alert("no entro");
 	}
 }
 // Android and Amazon Fire OS

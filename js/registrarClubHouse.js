@@ -19,7 +19,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	//var regId=window.regId;
 	//alert(regId+"-"+codigo);
 	mostrarSincronizando();
-	alert("mando");
+	//alert("mando");
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -31,11 +31,11 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	 	 }
 		xmlhttp.onreadystatechange=function()
 	  	{
-			alert(xmlhttp.readyState+"ready-a-status"+xmlhttp.status);
+			//alert(xmlhttp.readyState+"ready-a-status"+xmlhttp.status);
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			respuesta=xmlhttp.responseText;
-			alert(respuesta);
+			//alert(respuesta);
 			if(respuesta!="0"){
 				devolucion=respuesta.split("-");
 				window.logos=devolucion[0];
@@ -60,7 +60,7 @@ function registrarClubHouse2(){// Envio el codigo a esa direccion para
 	var udid=window.udid;//"123456";
 	//var udid="123456";
 	var regId=window.regId;
-	alert(regId+"-"+codigo+"-"+udid);
+	//alert(regId+"-"+codigo+"-"+udid);
 	var xmlhttp;
 		if (window.XMLHttpRequest)
 	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -72,7 +72,7 @@ function registrarClubHouse2(){// Envio el codigo a esa direccion para
 	 	 }
 		xmlhttp.onreadystatechange=function()
 	  	{
-			alert(xmlhttp.readyState+"ready-status"+xmlhttp.status);
+			//alert(xmlhttp.readyState+"ready-status"+xmlhttp.status);
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			respuesta=xmlhttp.responseText;
