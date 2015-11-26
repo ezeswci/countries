@@ -36,11 +36,11 @@ function cerrarTodo(){
 }
 
 function detenerPanico(){
-	dejarDeTrasmitirGps();
+	//dejarDeTrasmitirGps();
 	
 }
 function activarPanico(){
-	empezarATrasmitirGps();
+	//empezarATrasmitirGps();
 	//estadoDePanico(1);
 	//enviarMensajes();
 	//if(window.llamadaSecreta==1){startAudioRec();}

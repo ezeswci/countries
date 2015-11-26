@@ -17,19 +17,25 @@ function onDeviceReady() {
 
 
 */
+window.simulacion=false;
+if(!window.simulacion){
 document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
+	if(!window.simulacion){
 	if(!cordova.plugins.backgroundMode.isEnabled()){cordova.plugins.backgroundMode.enable();}
 	cordova.plugins.backgroundMode.configure({
-	title:  "Club House",
-    text:   " ",
     silent: true
-});
+				})
+;}
 }, false);
 document.addEventListener("deviceready", onDeviceReadyUdid, false);
 function onDeviceReadyUdid() {
+	
     window.udid=device.uuid;
 }
+}else{
+		window.udid='123456';
+	}
 function inicioMasBack(){
 	var dbSize = 20000000;// 20mb
     var dbName = "CCA";
@@ -47,39 +53,41 @@ function masBack(){
    	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();},10000);
-	setTimeout(function(){masBack();},20000);
+	comprobarEquipoBack();},10000);
+	setTimeout(function(){masBack();},60000);
 }
 function reservasBack(){
 	//alert("Entro al Back");
 	setTimeout(function(){window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();},10000);
-	setTimeout(function(){reservasBack();},20000);
+	comprobarEquipoBack();},10000);
+	setTimeout(function(){reservasBack();},60000);
 }
 function notBack(){	
-	//alert("Entro al Back");
+	//alert("Entro al Back Noticias");
    	setTimeout(function(){window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();},10000);
+	comprobarEquipoBack();},10000);
 	setTimeout(function(){notBack();},60000);
 }
 function invBack(){
 	//alert("Entro al Back");
    	setTimeout(function(){window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBAlertaBack, errorBack, successCBAlertaBack);
-	comprobarEquipo();},10000);
-	setTimeout(function(){invBack();},20000);
+	comprobarEquipoBack();},10000);
+	setTimeout(function(){invBack();},60000);
 }
 function emergBack(){
 	//alert("Entro al Back");
-   	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
+   	setTimeout(function(){
+	window.db.transaction(initDBReservasBack, errorBack, successCBReservasBack);
 	window.db.transaction(initDBInvitadosBack, errorBack, successCBInvitadosBack);
-	setTimeout(function(){comprobarEquipo();},10000);
-	setTimeout(function(){emergBack();},20000);
+	comprobarEquipoBack();},10000);
+	setTimeout(function(){emergBack();},60000);
 }
 function errorBack(){
+	alert("Error");
 	//window.location='reservas.html';
 }
 function successBack(){
@@ -101,16 +109,18 @@ function errorCB(tx, err) {
 // Transaction success callback
 //
 function successCBReservasBack() {
-    db.transaction(selectReservasBack, errorBack);
+	//alert("Miro las reservas");
+	db.transaction(selectReservasBack, errorBack);
 	
 }
 // Elijo el Lot usu id
 function selectLotUsuIdBack(tx) {
+	//alert("Entro a buscar datos usuario USU id BACK");
     tx.executeSql('SELECT * FROM LOT_USU', [], querySuccessUsuIdBack, errorBack);
 }
 function querySuccessUsuIdBack(tx, rs) {
     // this will be empty since no rows were inserted.
-
+	//alert("DATOS usuario USU id BACK");
     for (var i = 0; i < rs.rows.length; i++) {
         var p = rs.rows.item(i);
 		window.lotUsuId=p.lu_id;
@@ -273,6 +283,7 @@ function initDBInvitadosBack(tx) {
 }
 function successCBInvitadosBack() {
     //alert("Success!");
+	//alert("Miro los Invitados");
     db.transaction(selectInvitadosBack, errorBack);
 	
 }
@@ -388,6 +399,7 @@ function initDBAlertaBack(tx) {
 // Transaction success callback
 //
 function successCBAlertaBack() {
+	//alert("Miro los alerta");
     db.transaction(selectAlertaBack, errorBack);
 	
 }
@@ -417,7 +429,7 @@ function borrarAlertaBack(){
 	);
 }
 function enviarMensajeServidorBack(){
-	//alert ("entre a actualizar un invitado:"+inv_id);
+	//alert ("entre a actualizar un invitado:");
 	crearAlertaBack();
 	var lot_usu=window.lotUsuId;
 	var usu_udid=window.udid;
@@ -452,7 +464,8 @@ function enviarMensajeServidorBack(){
 }
 // -------------------------- Termino con el sector de Alarma -------------------------------------
 // -------------------------- Comienza con comprobaciones Regulares -------------------------------------
-function comprobarEquipo(){
+function comprobarEquipoBack(){
+	//alert("Miro comprobar equipo");
 	var lot_usu=window.lotUsuId;
 	var usu_udid=window.udid;
 	var ipSend=window.sis_ip;
@@ -498,7 +511,7 @@ function echarCelular(lot_usu){
 	);
 	window.location = "echado.html";
 } 
-function comprobarEquipo(){
+function comprobarSiAvisos(){
 	
 	var lot_usu=window.lotUsuId;
 	var ipSend=window.sis_ip;
@@ -543,7 +556,7 @@ function comprobarEquipo(){
 		xmlhttp.send("lot_usu="+lot_usu+"&sis_ult_avi="+sis_ult_avi);
 		}
 		else{
-			setTimeout(function(){comprobarEquipo();},3000); 
+			setTimeout(function(){comprobarSiAvisos();},3000); 
 		}
 }
 function actualizarUltimoAviso(sis_ult_avi,lot_usu){
@@ -569,13 +582,14 @@ function generarAlerta(id,titulo,contenido){
 	document.body.appendChild(fondo);      
 }
 function avisoPorAtras(id,titulo,contenido){
-	
+	if(!window.simulacion){if(cordova.plugins.backgroundMode.isActive()){
 	window.plugin.notification.local.add({
     id:         id,
 	title:      titulo,
     message:    contenido,
 	autoCancel: true
-	});//}
+	});//
+	}}
 	}
 function cerraAlerta(id){
 	if(document.getElementById("acartel"+id)!=null){

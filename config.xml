@@ -50,9 +50,9 @@
 	<!-- for iOS -->
 	<!-- Calendar plug in extenciones -->
 	<!-- GeoLocation platform. -->	
-	<gap:plugin name="org.transistorsoft.cordova.background-geolocation" version="0.3.5" />
+	<!--gap:plugin name="org.transistorsoft.cordova.background-geolocation" version="0.3.5" /-->
 	<!--gap:plugin name="com.joandilee.imeiplugin" version="0.1" /-->
-	<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" /><!-- Solo Android /-->
+	<plugin name="it.witek.cordova.plugin.background-mode" spec="0.6.3" source="pgb" /><!-- Solo Android /-->
 	<plugin name="com.footprint.cordova.plugin.local-notification" spec="0.8.0" source="pgb" />
 	
 	
