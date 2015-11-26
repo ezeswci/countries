@@ -4,7 +4,7 @@ window.ultActulizacion=0;
 if(!window.simulacion){
 document.addEventListener('deviceready', function () {
     // Analytics para club House
-	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house Android
 	window.analytics.trackView('OP-Novedades');
 }, false);
 }
