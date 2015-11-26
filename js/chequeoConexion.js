@@ -1,6 +1,5 @@
 // JavaScript Document
 function checkConnection() {
-if(!window.simulacion){// Para el simulador
 var state = navigator.connection.type;
 if (state == window.Connection.NONE)
 {
@@ -11,10 +10,8 @@ else
 {
     // has internet, continue work accessing internet
 	return true;
-}}else{
-	return true;
 }
-	/*return true;// Prueba interna*/ 
+	/*return true;// Prueba interna */
     //alert('Connection type: ' + states[networkState]);
 }
 

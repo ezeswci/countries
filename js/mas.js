@@ -23,7 +23,6 @@ var error = function (message) {
 };
 
 function onDeviceReady() {
-	inicioMasBack();
     initClickCB();
 }
 function agendarEvento() {
