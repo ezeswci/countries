@@ -1,7 +1,7 @@
 // JavaScript Document
 // Esta es la version para Android, aun que el mismo formato es aplicable a todas las plataformas
  var pushNotification;
- window.regId=0000;
+ window.regId="0";
 document.addEventListener("deviceready", onDeviceReadyPush, false);
 function onDeviceReadyPush() {
 	 var pushNotification = window.plugins.pushNotification;

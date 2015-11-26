@@ -2,6 +2,7 @@
 //Primer pregunta sis_ip, sis_tabs
 //Fijo sis_vers_act, sis_ult_ver
 //Segunda pregunta
+window.regId="0";
 window.simulacion=false;
 if(!window.simulacion){
 document.addEventListener("deviceready", onDeviceReadyUdid, false);
@@ -15,8 +16,8 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	var lectura=document.getElementById("codigo").value;
 	var codigos=lectura.split("-");
 	var codigo=codigos[0];
-	var regId=window.regId;
-	alert(regId+"-"+codigo);
+	//var regId=window.regId;
+	//alert(regId+"-"+codigo);
 	mostrarSincronizando();
 	var xmlhttp;
 		if (window.XMLHttpRequest)
@@ -32,6 +33,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			respuesta=xmlhttp.responseText;
+			alert(respuesta);
 			if(respuesta!="0"){
 				devolucion=respuesta.split("-");
 				window.logos=devolucion[0];
