@@ -31,7 +31,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 	 	 }
 		xmlhttp.onreadystatechange=function()
 	  	{
-			alert(xmlhttp.readyState+"ready-status"+xmlhttp.status);
+			alert(xmlhttp.readyState+"ready-a-status"+xmlhttp.status);
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			respuesta=xmlhttp.responseText;
@@ -48,7 +48,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 				}
 	    }
 	 	 }
-		xmlhttp.open("POST","http://miclubhouse.com.ar/sincro/data.php",true);
+		xmlhttp.open("POST","http://www.miclubhouse.com.ar/sincro/data.php",true);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send("codigo="+codigo);
 }
