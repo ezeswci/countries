@@ -15,14 +15,20 @@ function verificarPanico(){
 			activarPanicoRevision();
 		}}
 }*/
-
-
+if(!window.simulacion){
+document.addEventListener('deviceready', function () {
+    // Analytics para club House
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.trackView('OP-Alerta');
+}, false);
+}
 function apretoPanico(elemento){
 	if(elemento.src.indexOf("boton_empezar")!=-1){
 		elemento.src="img/boton_parar.jpg";
 		posiblidadCancelarPanico();
 		setTimeout(function(){desactivarPanico(elemento);},6000);
 		activarPanico();
+		if(!window.simulacion){window.analytics.trackEvent('Panico', 'Apreto Boton panico', 'alerta', 1);}
 		
 	}
 }
@@ -102,6 +108,7 @@ function enviarMensajeServidor(){
 }
 function avisarError(){
 	//alert ("entre a actualizar un invitado:"+inv_id);
+	if(!window.simulacion){window.analytics.trackEvent('Panico', 'Apreto Boton error', 'alerta', 1);}
 	borrarAlerta();
 	var ipSend=window.sis_ip;
 	cerrarAviso();

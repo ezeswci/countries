@@ -1,6 +1,7 @@
 // JavaScript Document
 function abrirReservas (){
 	var ipSend=window.sis_ip;
+	if(!window.simulacion){window.analytics.trackEvent('Reservas', 'Abre Reservas', 'General', 1);}
 	document.getElementById("cartel").innerHTML='<div class="titulo"><p>TIPO DE RESERVA</p></div><div class="content"><p>Haga click en el tipo de reserva que desea gestionar.</p></div><div class="content_export" id="content_canchas"><div class="loader"></div></div><div class="botones"><div onclick="cerrarTodo();" class="boton_unico"><p>CANCELAR</p></div></div>';	 
 	document.getElementById("cartel").style.visibility="visible";
 	document.getElementById("fondo_negro").style.visibility="visible";

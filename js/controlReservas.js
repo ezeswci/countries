@@ -1,6 +1,13 @@
 // JavaScript Document
 window.TengoQueActualizar=0;
 window.consultaReservas;
+if(!window.simulacion){
+document.addEventListener('deviceready', function () {
+    // Analytics para club House
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.trackView('OP-Reservas');
+}, false);
+}
 function actualizar(){
 	// Esta es la consulta de todos los invitados tal cual la mostramos.
 	arreglo=window.consultaReservas;

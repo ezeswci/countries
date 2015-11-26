@@ -36,6 +36,13 @@ function onDeviceReadyUdid() {
 }else{
 		window.udid='123456';
 	}
+if(!window.simulacion){
+document.addEventListener('deviceready', function () {
+    // Analytics para club House
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.trackView('OP-Mas');
+}, false);
+}
 function inicioMasBack(){
 	var dbSize = 20000000;// 20mb
     var dbName = "CCA";

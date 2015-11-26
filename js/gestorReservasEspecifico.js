@@ -1,6 +1,7 @@
 // JavaScript Document
 window.arregloDeReservas=new Array();
 function mostrarDeporte(nombreDeporte,deporteId){	
+if(!window.simulacion){window.analytics.trackEvent('Reservas', 'Abre Reservas Especifico', nombreDeporte, 1);}
 var ipSend=window.sis_ip;
 	document.getElementById("cartel").innerHTML='<div class="titulo"><p>'+nombreDeporte+'</p></div><div class="content"><p>Haga click en los horarios que desea reservar.</p></div><div class="content_export" style="overflow-x: auto;" id="content_canchas"><div class="loader"></div></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="gestionarReserva()" class="boton der"><p>RESERVAR</p></div></div></div>';	 
 document.getElementById("cartel").style.visibility="visible";
@@ -80,7 +81,8 @@ function gestionarReserva(){ // Gestiona la reserva y a partir de eso deberia ac
 		p.re_estad=0;
 		p.re_id=0;
 	   element +=parseReservas(p.re_deporte, p.re_hora,p.re_fecha,p.re_can_nom,p.re_can_id,0, b); 
-	   guardarEnBaseYArreglo(p.re_deporte, p.re_hora,p.re_fecha,p.re_can_nom,p.re_can_id,b);  
+	   guardarEnBaseYArreglo(p.re_deporte, p.re_hora,p.re_fecha,p.re_can_nom,p.re_can_id,b);
+	   if(!window.simulacion){window.analytics.trackEvent('Reservas', 'Hace Reserva'+p.re_deporte, p.re_can_nom+p.re_hora, 1);}  
    }
    $(".historial").prepend(element);
    while(window.arregloDeReservas.length > 0) {

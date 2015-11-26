@@ -1,6 +1,15 @@
 // JavaScript Document
 window.noticias=new Array();
 window.ultActulizacion=0;
+if(!window.simulacion){
+document.addEventListener('deviceready', function () {
+    // Analytics para club House
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.trackView('OP-Novedades');
+}, false);
+}
+
+
 $(document).ready(onDeviceReady);
 
 function onDeviceReady() {
@@ -97,6 +106,7 @@ function mostrarNoticias(){
 	else{ setTimeout(function(){mostrarNoticias();},50);}
 }
 function openNoticia(cual){
+	if(!window.simulacion){window.analytics.trackEvent('Noticia', 'Abre noticia', window.noticias[cual].titulo, 1);}
 	texto='<div class="header"><div class="titulo">'+window.noticias[cual].tipo+'</div></div><div class="contenidos"><div class="contenedor_fondo" style="background-image:url('+window.noticias[cual].foto+');"></div><div class="corredor_noticia"><div class="noticia"><H1>'+window.noticias[cual].titulo+'</H1><H3>'+window.noticias[cual].resumen+'</H3><div class="texto">'+window.noticias[cual].descript+'</div></div></div> <!--        CALENDARIO / RELOJ      --></div><div class="footer" style="z-index:25;"><a onclick="cerrarPopUp();"><img src="img/cerrar.png" width="135" height="135" /></a></div>';
 	//texto='<div class="scroll"><div class="titulo"><p>'+window.noticias[cual].titulo+'</p></div><img src="'+window.noticias[cual].foto+'" class="ppal" /><div class="content"><p>Noticia: <span>'+window.noticias[cual].descript+'</span></p></div></div><div class="botones"><div onclick="cerrarPopUp();" class="boton_unico aceptar"><p>ACEPTAR</p></div></div>';
 	document.getElementById("cartelNoticias").innerHTML=texto;

@@ -2,7 +2,13 @@ $(document).ready(onDeviceReady);
 // Para hacerlo mas adaptable a varios countries deberia ver en que country estoy
 // Tener en cuenta que uso el lot_usu_id para decir a que corresponde la invitación
 
-
+if(!window.simulacion){
+document.addEventListener('deviceready', function () {
+    // Analytics para club House
+	window.analytics.startTrackerWithId('UA-69244682-1');// Analytics para club house
+	window.analytics.trackView('OP-Invitados');
+}, false);
+}
 //var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
@@ -129,13 +135,8 @@ function agregarContactos (){
 	document.getElementById("cartel").style.visibility="visible";
 	document.getElementById("fondo_negro").style.visibility="visible";
 }
-function agregarManual(){
-	document.getElementById("cartel").style.visibility="hidden";
-	document.getElementById("cartel2").innerHTML='<div onclick="cerrarTodo();" id="x"><img src="img/x.jpg" width="35" height="35" /></div><div class="titulo">SMS O MAIL</div><div class="content"><p>Hay contactos que reciben el mensaje de alerta por SMS y otros que lo reciben por mail.</p><p>Elija el tipo de contacto que desea cargar:. </p></div><div class="botones"><div onclick="agregarSMSManual();" class="boton">SMS</div><div onclick="agregarMailManual();" class="boton der">MAIL</div></div>';
-	document.getElementById("cartel2").style.visibility="visible";
-}
-
 function agregarSMSManual(){
+	if(!window.simulacion){window.analytics.trackEvent('Invitados', 'Apertura invitado', 'invitados', 1);}
 	document.getElementById("cartel2").style.visibility="hidden";
 	document.getElementById("cartel3").innerHTML='<div class="titulo"><p>INGRESE LOS DATOS</p></div><div class="content"><p>Ingrese el nombre del Invitado.</p><table width="100%" style=" margin-top:15px;"><tr><td width="20%">Nombre:</td><td><input type="text" id="con_nombre" autocomplete="off" ></td></tr></table><table style=" margin-bottom:25px;" width="100%"><tr><td width="20%">Apellido:</td><td><input type="text" id="con_apellido" autocomplete="off" ></td></tr></table></div><div class="botones"><div class="botonera"><div onclick="cerrarTodo();" class="boton"><p>CANCELAR</p></div><div onclick="agregarAgenda();" class="boton der"><p>AGREGAR</p></div></div></div>';
 	document.getElementById("fondo_negro").style.visibility="visible";
@@ -150,6 +151,7 @@ function successCBS(){
 	window.location='invitados.html';
 }
 function insertContactoManual(tx){
+	if(!window.simulacion){window.analytics.trackEvent('Invitados', 'Autorizo invitado', 'invitados', 1);}
 	 nombre=document.getElementById("con_nombre").value.capitalize()+" "+document.getElementById("con_apellido").value.capitalize();
 	 estado=0;
 	 quien=window.lotUsuId;
@@ -168,6 +170,7 @@ function borrarContacto(modificado,i,element){
 	window.delet_id=modificado;
 	window.consultaInvitados[i].inv_estado=3;
 	window.db.transaction(borrarContactoId, errorCB, successELI);
+	if(!window.simulacion){window.analytics.trackEvent('Invitados', 'Elimino invitado', 'invitados', 1);}
 	// Ver de sacarlo del arreglo cunado lo elimino
 	// El cancelar tiene que ser distinto
 }
