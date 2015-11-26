@@ -7,11 +7,11 @@
     <name>Mi Club House</name>
 
     <description>
-        Mi Club House App, es una App que sirve como boton de panico para emeregencias
+        Mi Club House App, es una App para condominios, countries y barrios cerrados
     </description>
 
-    <author href="http://www.swci.com.ar" email="info@swci.com.ar">
-        SWCI
+    <author href="http://www.swci.com.ar" email="ewernicke@miclubhouse.com.ar">
+        MI CLUB HOUSE
     </author>
 	<preference name="permissions"                value="none"/>
 
