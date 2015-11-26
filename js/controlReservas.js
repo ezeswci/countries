@@ -19,7 +19,7 @@ function actualizar(){
 	window.actualiza=setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
 }
 function errorCBAA() {
-    alert("error CBAA");
+    //alert("error CBAA");
 }
 function verificarEstadoReserva(i,re_id , re_deporte, re_hora, re_fecha, re_can_nom, re_can_id, re_estad){
 	if(re_estad!=0){// Tengo que verificar si entro al barrio

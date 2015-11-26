@@ -94,7 +94,7 @@ function successupd(){
 	 
 }
 function errorupd(){
-	 alert('acualizo mal');
+	 //alert('acualizo mal');
 	 
 }
 function deUrlAbase64(){

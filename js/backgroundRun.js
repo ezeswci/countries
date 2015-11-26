@@ -94,7 +94,7 @@ function emergBack(){
 	setTimeout(function(){emergBack();},60000);
 }
 function errorBack(){
-	alert("Error");
+	//alert("Error");
 	//window.location='reservas.html';
 }
 function successBack(){

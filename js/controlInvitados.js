@@ -49,7 +49,7 @@ function actualizar(){
 	window.actualiza=setTimeout(function(){actualizar();},15000);// Actualiza cada 15 segundos
 }
 function errorCBAA() {
-    alert("error CBAA");
+    //alert("error CBAA");
 }
 function verificarEstadoInvitado(i,inv_id, inv_nombre, inv_estado, inv_mod){
 	//alert ("entre a verificar estado-"+inv_estado);
@@ -125,7 +125,7 @@ function successupd(){
 	 
 }
 function errorupd(){
-	 alert('acualizo mal');
+	 //alert('acualizo mal');
 	 
 }
 function actualizarInvitado(i,inv_mod,inv_id, inv_estado){
