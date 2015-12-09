@@ -23,9 +23,18 @@ document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
 	if(!window.simulacion){
 	if(!cordova.plugins.backgroundMode.isEnabled()){cordova.plugins.backgroundMode.enable();}
+	cordova.plugins.backgroundMode.setDefaults({
+    title:  "Club House",
+    ticker: "Sincronizado",
+    text:   "Sincronizado",
+	silent: true
+})
 	cordova.plugins.backgroundMode.configure({
-    silent: true
-				})
+    title:  "Club House",
+    ticker: "Sincronizado",
+    text:   "Sincronizado",
+	silent: true
+})
 ;}
 }, false);
 document.addEventListener("deviceready", onDeviceReadyUdid, false);
