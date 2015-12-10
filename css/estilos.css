@@ -557,11 +557,11 @@ p {
 	-webkit-box-shadow: 4px 4px 4px 4px #3B3B3B;
 	box-shadow: 4px 4px 4px 4px #3B3B3B;
 }
-#cartel .scroll,{
+#cartel .scroll, .cartel .scroll{
 	overflow-y: auto;
 	max-height:70vh;
 }
-#cartel .scroll .ppal{
+#cartel .scroll .ppal, .cartel .scroll .ppal{
 	width:70%;
 	margin-left:15%;
 }
@@ -591,7 +591,7 @@ p {
 #cartel .titulo p, #cartel2 .titulo p, #cartel3 .titulo p, #cartel4 .titulo p, .cartel .titulo p{
 	padding-top: 13px;
 	}
-#cartel .content, #cartel2 .content, #cartel3 .content, #cartel4 .content, , .cartel .content{
+#cartel .content, #cartel2 .content, #cartel3 .content, #cartel4 .content, .cartel .content{
 	font-family: 'DINNextLTPro-Light';
 	width: 80%;
 	margin-left:10%;
@@ -604,7 +604,7 @@ p {
 	color: black;
 }
 /* sensible al tamaño del cel a tener en cuenta */
-#cartel .content_export, #cartel2 .content_export, #cartel3 .content_export, #cartel4 .content_export{
+#cartel .content_export, #cartel2 .content_export, #cartel3 .content_export, #cartel4 .content_export, .cartel .content_export{
 	font-family: 'DINNextLTPro-Light';
 	font-size:9px;
 	width: 80%;
