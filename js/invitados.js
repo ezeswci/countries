@@ -9,7 +9,6 @@ document.addEventListener('deviceready', function () {
 	window.analytics.trackView('OP-Invitados');
 }, false);
 }
-//var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
 window.db;

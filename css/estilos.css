@@ -326,7 +326,7 @@ p {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  -webkit-tap-highlight-color: transparent;
 }
 .boton_1{
 	background-color: #4F535C;
@@ -342,8 +342,8 @@ p {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
-}
+  -webkit-tap-highlight-color: transparent;
+}*/
 
 .------------------DATOS---------------{}
 .cuerpo2 {
@@ -461,7 +461,7 @@ p {
 	padding-top:10px;
 	padding-bottom:10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  -webkit-tap-highlight-color: transparent;  
 }
 
 .cuerpo2 .item .boton {
@@ -478,7 +478,7 @@ p {
 	padding-top:10px;
 	padding-bottom:10px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  -webkit-tap-highlight-color: transparent;  
 }
 .cuerpo2 .main.error .item {
 	color: #F71628;
@@ -651,7 +651,7 @@ p {
 	-webkit-border-radius: 50%;
 	background-color:#D71825;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  	-webkit-tap-highlight-color: transparent; /* For some Androids */
+  	-webkit-tap-highlight-color: transparent;  
 }
 #cartel .botones .boton.der, #cartel2 .botones .boton.der, #cartel3 .botones .boton.der, #cartel4 .botones .boton.der {
 	background-color:#8BC63E;
@@ -669,7 +669,7 @@ p {
 	-webkit-border-radius: 50%;
 	background-color:#D71825;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  	-webkit-tap-highlight-color: transparent; /* For some Androids */
+  	-webkit-tap-highlight-color: transparent;  
 }
 #cartel .botones .boton_unico.aceptar, #cartel2 .botones .boton_unico.aceptar, #cartel3 .botones .boton_unico.aceptar, #cartel4 .botones .boton_unico.aceptar {
 	background-color:#8BC63E;
@@ -799,7 +799,7 @@ p {
 	left: 25px;
 	top: 25px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
+  -webkit-tap-highlight-color: transparent;  
 }
 
 .estadisticas-menu {
@@ -844,7 +844,7 @@ p {
 	height: auto;
 	width: 70px;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids *//*
+  -webkit-tap-highlight-color: transparent;  /*
 }
 .estadisticas-menu .item {
 	font-size:15px;

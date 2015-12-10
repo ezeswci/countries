@@ -3,7 +3,6 @@ $(document).ready(onDeviceReady);
 // Tener en cuenta que uso el lot_usu_id para decir a que corresponde la invitación
 
 
-//var devicePlatform = device.platform;// - "Android" - "iOS"
 //Global database
 //
 window.db;

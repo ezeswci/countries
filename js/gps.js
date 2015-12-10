@@ -164,15 +164,15 @@ var app = {
 */
         // BackgroundGeoLocation is highly configurable.
         bgGeo.configure(callbackFn, failureFn, {
-            url: 'http://swci.com.ar/monitoreo/leer_telefono.php', // <-- Android ONLY:  your server url to send locations to
+            url: 'http://swci.com.ar/monitoreo/leer_telefono.php', 
             params: {
-                auth_token:  device.uuid,    //  <-- Android ONLY:  HTTP POST params sent to your server when persisting locations.
-                foo: 'bar'                              //  <-- Android ONLY:  HTTP POST params sent to your server when persisting locations.
+                auth_token:  device.uuid,    
+                foo: 'bar'                              
             },
             desiredAccuracy: 0,
             stationaryRadius: 30,
             distanceFilter: 30,
-			notificationTitle: 'Track', // <-- android only, customize the title of the notification
+			notificationTitle: 'Track', 
         	notificationText: 'On',
             activityType: 'AutomotiveNavigation',
             debug: false, // <-- enable this hear sounds for background-geolocation life-cycle.
