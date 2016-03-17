@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.miclubhouse"
-        version   = "1.0.0">
+        version   = "1.0.1">
 
     <name>Mi Club House</name>
 
@@ -36,7 +36,6 @@
     <gap:plugin name="org.apache.cordova.file" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
 	<gap:plugin name="cordova-plugin-network-information" version="1.0.1" />
 
     <!-- Third party plugins -->
