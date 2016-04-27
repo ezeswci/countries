@@ -13,7 +13,7 @@ function onDeviceReadyUdid() {
 		window.udid='123456';
 	}
 function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy a apuntar
-	var lectura=document.getElementById("codigo").value;
+	var lectura=document.getElementById("codigo").value+document.getElementById("codigo2").value;
 	var codigos=lectura.split("-");
 	var codigo=codigos[0];
 	//var regId=window.regId;
@@ -54,7 +54,7 @@ function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy
 }
 function registrarClubHouse2(){// Envio el codigo a esa direccion para 
 	var ipSend=window.sis_ip;
-	var lectura=document.getElementById("codigo").value;
+	var lectura=document.getElementById("codigo").value+document.getElementById("codigo2").value;
 	var codigos=lectura.split("-");
 	var codigo=codigos[1];
 	var udid=window.udid;//"123456";

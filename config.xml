@@ -2,7 +2,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.miclubhouse"
-        version   = "1.0.1">
+        version   = "1.0.2">
 
     <name>Mi Club House</name>
 
@@ -45,7 +45,6 @@
 	<!-- for iOS -->
 	<gap:plugin name="com.joandilee.imeiplugin" version="0.1" />
 	<gap:plugin name="com.badrit.backbutton" version="0.1.0" />
-	<plugin name="it.witek.cordova.plugin.background-mode" spec="0.6.3" source="pgb" />
 	<plugin name="com.footprint.cordova.plugin.local-notification" spec="0.8.0" source="pgb" />
 	<plugin name="com.danielcwilson.plugins.googleanalytics" spec="0.6.1" source="pgb" />
 	<plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
