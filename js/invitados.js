@@ -78,10 +78,10 @@ function querySuccessUsuId(tx, rs) {
 }
 function cargoOpcionesDeMenu(){
 	// sis_tabs son los tabs que el country tiene disponibles Noticias - visitas- emergencias - reservas
-	/*if(window.sis_tabs[0]==0){ document.getElementById("botNoticiasFoot").style.display="none";}
+	if(window.sis_tabs[0]==0){ document.getElementById("botNoticiasFoot").style.display="none";}
 	if(window.sis_tabs[1]==0){ document.getElementById("botInvitadosFoot").style.display="none";}
 	if(window.sis_tabs[2]==0){ document.getElementById("botEmergenciasFoot").style.display="none";}
-	if(window.sis_tabs[3]==0){ document.getElementById("botReservasFoot").style.display="none";}*/
+	if(window.sis_tabs[3]==0){ document.getElementById("botReservasFoot").style.display="none";}
 }
 // Enlisto todos los invitados y los adjunto al panel
 function selectInvitados(tx) {
