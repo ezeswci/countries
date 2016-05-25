@@ -26,7 +26,7 @@ function checkIfToSlowInternet(){
 }
 function toSlowInternet(){
 	// Mensaje de aviso mas corta el loading
-	closeLoadingAnimation();
-	alert("Intente en otro momento");
+	cerrarTodo();
+	alert("Su conexión a internet está muy lenta.Intente en otro momento");
 	//avisoEmergenteJugaPlayMalInternet("Conexión muy lenta","<p>Su conexión a internet está muy lenta. Es posible que no pueda disfrutar la experiencia Jugaplay debido a esta causa.</p>");
 }
