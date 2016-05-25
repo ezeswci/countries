@@ -930,7 +930,6 @@ p {
 	color:#FFF;
 	margin-top:7px;
 }
-
 .historial_item .texto {
 	font-family: 'DINNextLTPro-Regular';
 	height:40px;
@@ -943,8 +942,14 @@ p {
 	margin-bottom:3px;
 	position:relative;
 }
+.historial_item .texto.entro {
+	background-color:rgba(165, 206, 68, 0.46);
+}
 .historial_item .texto.par {
 	background-color:#DEDFE0;
+}
+.historial_item .texto.par.entro {
+	background-color:rgba(165, 206, 68, 0.72);
 }
 .historial_item .contacto {
 	width: 50%;

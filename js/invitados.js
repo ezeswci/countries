@@ -108,18 +108,21 @@ function parseINVITADOS(inv_id, inv_nombre, inv_estado, modificado, parimpar){
 		switch(inv_estado) {
     case 0:
         estado='<img src="img/estados/enviando.png" id="img_inv_'+modificado+'" class="estado" />';//'Enviando';
+		estadoClase="";
         break;
     case 1:
         estado='<img src="img/estados/recibido.png" id="img_inv_'+modificado+'" class="estado" />';//'Recibido';
+		estadoClase="";
         break;
 	case 2:
         estado='<img src="img/estados/procesado.png" id="img_inv_'+modificado+'" class="estado" />';//'Entro';
+		estadoClase="entro";
         break;
 	case 3:
         estado='cancelado';//'Cancelado'; borrarContactoEstado(i,inv_mod)
         break;
 	}
-	if(parimpar%2==0){clase='texto';}else{clase='texto par';}
+	if(parimpar%2==0){clase='texto '+estadoClase;}else{clase='texto par '+estadoClase;}
 		if(estado!='cancelado'){
     	return '<div class="historial_item" id="historial_item_'+(modificado)+'"><div class="'+clase+'"><div class="fecha">'+diafecha+'</div><div onclick="borrarContacto('+modificado+','+parimpar+',this)" class="borrar"><p>X</p></div><div class="contacto">'+inv_nombre+'</div>'+estado+'</div></div>';}else{
 		return '';

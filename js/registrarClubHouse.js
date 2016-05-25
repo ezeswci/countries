@@ -13,44 +13,49 @@ function onDeviceReadyUdid() {
 		window.udid='123456';
 	}
 function registrarClubHouse(){// Envio un mensaje para saber a que direccion voy a apuntar
-	var lectura=document.getElementById("codigo").value+document.getElementById("codigo2").value;
-	var codigos=lectura.split("-");
-	var codigo=codigos[0];
-	//var regId=window.regId;
-	//alert(regId+"-"+codigo);
-	mostrarSincronizando();
-	//alert("mando");
-	var xmlhttp;
-		if (window.XMLHttpRequest)
-	 	 {// code for IE7+, Firefox, Chrome, Opera, Safari
-	  		xmlhttp=new XMLHttpRequest();
-	  		}
-		else
-	  	{// code for IE6, IE5
-	 	 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	 	 }
-		xmlhttp.onreadystatechange=function()
-	  	{
-			//alert(xmlhttp.readyState+"ready-a-status"+xmlhttp.status);
-	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-			respuesta=xmlhttp.responseText;
-			//alert(respuesta);
-			if(respuesta!="0"){
-				devolucion=respuesta.split("-");
-				window.logos=devolucion[0];
-    			window.sis_ip=devolucion[1];
-				window.sis_tabs=devolucion[2];
-				registrarClubHouse2();
-			}else{
-				// Avisar que hubo un error en el codigo ingresado
-				mostrarAviso();
+	checkIfToSlowInternet();
+	if(checkConnection()){
+		var lectura=document.getElementById("codigo").value+document.getElementById("codigo2").value;
+		var codigos=lectura.split("-");
+		var codigo=codigos[0];
+		//var regId=window.regId;
+		//alert(regId+"-"+codigo);
+		mostrarSincronizando();
+		//alert("mando");
+		var xmlhttp;
+			if (window.XMLHttpRequest)
+			 {// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
 				}
-	    }
-	 	 }
-		xmlhttp.open("POST","http://www.miclubhouse.com.ar/sincro/data.php",true);
-		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send("codigo="+codigo);
+			else
+			{// code for IE6, IE5
+			 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			 }
+			xmlhttp.onreadystatechange=function()
+			{
+				//alert(xmlhttp.readyState+"ready-a-status"+xmlhttp.status);
+			 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				respuesta=xmlhttp.responseText;
+				//alert(respuesta);
+				if(respuesta!="0"){
+					devolucion=respuesta.split("-");
+					window.logos=devolucion[0];
+					window.sis_ip=devolucion[1];
+					window.sis_tabs=devolucion[2];
+					registrarClubHouse2();
+				}else{
+					// Avisar que hubo un error en el codigo ingresado
+					mostrarAviso();
+					}
+			}
+			 }
+			xmlhttp.open("POST","http://www.miclubhouse.com.ar/sincro/data.php",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send("codigo="+codigo);
+	}else{
+		alert("No se encontró una conexión a internet. Intente Nuevamente");
+	}
 }
 function registrarClubHouse2(){// Envio el codigo a esa direccion para 
 	var ipSend=window.sis_ip;
@@ -76,6 +81,7 @@ function registrarClubHouse2(){// Envio el codigo a esa direccion para
 	 	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
 	    {
 			respuesta=xmlhttp.responseText;
+			stopTimeToWait();
 			if(respuesta!="0"){
 				devolucion=respuesta.split("-")
     			window.lu_id=parseInt(devolucion[0]);

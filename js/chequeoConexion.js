@@ -1,35 +1,32 @@
 // JavaScript Document
+window.internetCheckedSlow=0;
 function checkConnection() {
-if(!window.simulacion){// Para el simulador
-var state = navigator.connection.type;
-if (state == window.Connection.NONE)
-{
-    // doesn't have internet, notify
-	return false;
+	if(!window.simulacion){
+		var state = navigator.connection.type;
+		if (state.toUpperCase() == "NONE")
+		{
+			//avisoEmergenteJugaPlay("Sin conexión","<p>No se encontró una conexión a internet.</p>");
+			//closeLoadingAnimation();
+			return false;
+		}
+		else
+		{
+			//window.timeToWait = setTimeout(function(){ toSlowInternet(); }, 40000);
+			return true;
+		}
+	}else{
+		return true;
+	}
 }
-else
-{
-    // has internet, continue work accessing internet
-	return true;
-}}else{
-	return true;
+function stopTimeToWait(){
+	clearTimeout(window.timeToWait);
 }
-	/*return true;// Prueba interna*/ 
-    //alert('Connection type: ' + states[networkState]);
+function checkIfToSlowInternet(){
+	window.timeToWait = setTimeout(function(){ toSlowInternet(); }, 30000);
 }
-
-function checkConnectionControl() {
-var networkState = navigator.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    alert('Connection type: ' + states[networkState]);
+function toSlowInternet(){
+	// Mensaje de aviso mas corta el loading
+	closeLoadingAnimation();
+	alert("Intente en otro momento");
+	//avisoEmergenteJugaPlayMalInternet("Conexión muy lenta","<p>Su conexión a internet está muy lenta. Es posible que no pueda disfrutar la experiencia Jugaplay debido a esta causa.</p>");
 }

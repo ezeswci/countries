@@ -150,8 +150,8 @@ function actualizarInvitado(i,inv_mod,inv_id, inv_estado){
 			
 			//alert("devuelto:"+value+" Tengo:"+inv_estado);
 			if(inv_estado!=value){
-			//alert("Actualizo:"+value);
 			if(value==2){// Si el estado es procesado cambiar a procesado
+			document.getElementById("historial_item_"+inv_mod).getElementsByClassName("texto").item(0).classList.add("entro");
 			document.getElementById("img_inv_"+inv_mod).src="img/estados/procesado.png";}
 			actualizarContactoEstado(i,inv_id,value);			
 			}

@@ -54,13 +54,6 @@ function selectHist(tx) {
     tx.executeSql('SELECT * FROM LOT_USU', [], querySuccess, errorCB);
 }
 function insertUsu(tx){
-	//var id=device.uuid;
-	//alert('Cargo usuario');
-	 //var id='123';// Sacarlo para el cel
-	 //var query = 'INSERT INTO USUARIOS (usu_id, usu_udid, usu_nombre, usu_apellido, usu_celular, usu_estado ) VALUES (?,?,?,?,?,?)';
-     //tx.executeSql(query, [1, id, "Ezequiel", "Wernicke", "1161749820", "A"]);
-	 //var query1 = 'INSERT INTO LOTES (lot_id, lot_nombre , lot_coun_id , lot_flia) VALUES (?,?,?,?)';
-     //tx.executeSql(query1, [1, "T-63", 1, "Wernicke"]);
 	  /*Lo unico que va*/
 	 sis_ult_ver= new Date();
 	 cero=0;
@@ -68,13 +61,9 @@ function insertUsu(tx){
      tx.executeSql(query2, [window.lu_id, window.lu_lo_id, window.lu_usu_id, window.lu_tipo, window.sis_ip, window.sis_tabs, window.sis_vers_act, sis_ult_ver, cero]); 
 	 
 	 tx.executeSql('SELECT * FROM LOT_USU', [], querySuccess, errorCB);
-	 //var query3 = 'INSERT INTO COUNTRY (co_id, co_nombre) VALUES (?,?)';
-     //tx.executeSql(query3, [1, "Ayres de Pilar"]);/**/
 	 
 }
 function querySuccess(tx, rs) {
-    // this will be empty since no rows were inserted.
-	//alert(rs.rows.length);
 	if(rs.rows.length>0){
 		tabs=window.sis_tabs.split("/");
 		if(tabs[0]!=0){ window.location = "noticias.html";}
